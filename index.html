@@ -5,16 +5,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>FutureYou</title>
 <style>
+/* Fond de page et texte global */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background: url("fond-de-page.png") no-repeat center center fixed;
+    background: url("page.png") no-repeat center center fixed;
     background-size: cover;
     color: #fff;
     line-height: 1.6;
 }
 
+/* Header avec photo en haut à droite */
 header {
     background: linear-gradient(90deg, #1E90FF, #187bcd);
     color: white;
@@ -32,19 +34,20 @@ header img {
     border:2px solid white;
 }
 
+/* Sections */
 section {
     max-width: 900px;
     margin: 30px auto;
-    background-color: rgba(0,0,0,0.5);
+    background-color: rgba(0,0,0,0.6); /* légèrement transparent pour voir le fond */
     padding:30px;
     border-radius:15px;
 }
 
 h2 { color: #1E90FF; margin-bottom:15px; }
-
 p, li { font-size:1.1em; margin-bottom:10px; }
 ul { list-style: inside disc; margin-left:10px; }
 
+/* Boutons */
 .btn {
     display:inline-block;
     padding:12px 25px;
@@ -57,6 +60,7 @@ ul { list-style: inside disc; margin-left:10px; }
 }
 .btn:hover { background-color:#187bcd; }
 
+/* Footer */
 footer {
     text-align:center;
     padding:20px;
@@ -65,6 +69,7 @@ footer {
     margin-top:30px;
 }
 
+/* Responsive */
 @media (max-width:600px) {
     header h1 { font-size:2em; }
     header img { width:60px; top:5px; right:5px; }
@@ -80,6 +85,7 @@ footer {
 <img src="moi.png" alt="Moi">
 </header>
 
+<!-- Section À propos avec boutons -->
 <section>
 <h2>À propos du projet</h2>
 <p>FutureYou vous aide à visualiser et planifier votre futur. Grâce à cette page, vous pouvez suivre vos objectifs et imaginer la meilleure version de vous-même.</p>
@@ -90,6 +96,7 @@ footer {
 <a href="profil.html" class="btn" target="_blank">Profil</a>
 </section>
 
+<!-- Section fonctionnalités -->
 <section id="features">
 <h2>Fonctionnalités</h2>
 <ul>
@@ -100,6 +107,7 @@ footer {
 </ul>
 </section>
 
+<!-- Section Contact -->
 <section>
 <h2>Contact</h2>
 <p>Envie d’en savoir plus ou de contribuer au projet ?</p>
