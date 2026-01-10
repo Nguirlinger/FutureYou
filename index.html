@@ -5,17 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FutureYou</title>
     <style>
-        /* Corps de la page */
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f5f6fa; /* couleur neutre pour le corps */
+            background-color: #f5f6fa;
             color: #333;
             line-height: 1.6;
         }
 
-        /* Header avec photo en haut à droite */
         header {
             background: linear-gradient(90deg, #4CAF50, #45a049);
             color: white;
@@ -29,24 +27,22 @@
             margin: 0;
         }
 
-        /* Photo Moi.png en haut à droite */
         header img {
             position: absolute;
             top: 10px;
             right: 10px;
-            width: 80px; /* ajustable */
+            width: 80px;
             height: auto;
             border-radius: 50%;
             border: 2px solid white;
         }
 
-        /* Sections avec fond personnalisé */
         section {
             max-width: 900px;
             margin: 30px auto;
             background: url('Fond de page.png') no-repeat center center;
             background-size: cover;
-            color: #ffffff; /* texte blanc visible */
+            color: #ffffff;
             padding: 30px;
             border-radius: 15px;
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
@@ -55,7 +51,6 @@
             overflow: hidden;
         }
 
-        /* Overlay léger pour lisibilité */
         section::before {
             content: "";
             position: absolute;
@@ -63,12 +58,11 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0,0,0,0.2); /* overlay léger */
+            background-color: rgba(0,0,0,0.2);
             z-index: 0;
             border-radius: 15px;
         }
 
-        /* Contenu au-dessus de l'overlay */
         section * {
             position: relative;
             z-index: 1;
@@ -80,7 +74,7 @@
 
         h2 {
             margin-bottom: 15px;
-            color: #ffd700; /* titre doré pour bien ressortir */
+            color: #ffd700;
         }
 
         p, li {
@@ -96,7 +90,7 @@
         .btn {
             display: inline-block;
             padding: 12px 25px;
-            margin-top: 15px;
+            margin: 10px 10px 0 0;
             background-color: #4CAF50;
             color: white;
             text-decoration: none;
@@ -132,6 +126,12 @@
                 margin: 20px 15px;
                 padding: 20px;
             }
+
+            .btn {
+                display: block;
+                width: 100%;
+                margin-bottom: 10px;
+            }
         }
     </style>
 </head>
@@ -141,13 +141,39 @@
         <img src="Moi.png" alt="Moi">
     </header>
 
-    <!-- Section À propos -->
+    <!-- Section À propos + boutons -->
     <section>
         <h2>À propos du projet</h2>
         <p>FutureYou est un projet qui vous aide à visualiser et planifier votre futur. Grâce à cette page, vous pouvez suivre vos objectifs et imaginer la meilleure version de vous-même.</p>
-        <a href="#features" class="btn">Découvrir les fonctionnalités</a>
+        
+        <!-- Boutons visibles directement sur la première page -->
+        <a href="mentors.html" class="btn">Rencontrez vos mentors invisibles</a>
+        <a href="microcompetences.html" class="btn">Échanges de Micro-Compétences</a>
+        <a href="projets-collaboratifs.html" class="btn">Projets Collaboratifs</a>
+        <a href="profil.html" class="btn">Ton Profil Trajet de Vie</a>
     </section>
 
     <!-- Section Fonctionnalités -->
-    <sec
+    <section id="features">
+        <h2>Fonctionnalités</h2>
+        <ul>
+            <li>Visualiser vos objectifs à court et long terme</li>
+            <li>Suivi de progression personnalisé</li>
+            <li>Interface simple et intuitive</li>
+            <li>Optimisé pour tous les écrans (mobile & desktop)</li>
+        </ul>
+    </section>
+
+    <!-- Section Contact -->
+    <section>
+        <h2>Contact</h2>
+        <p>Envie d’en savoir plus ou de contribuer au projet ?</p>
+        <a href="mailto:contact@futureyou.com" class="btn">Contactez-nous</a>
+    </section>
+
+    <footer>
+        &copy; 2026 FutureYou. Tous droits réservés.
+    </footer>
+</body>
+</html>
 
