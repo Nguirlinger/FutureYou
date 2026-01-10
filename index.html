@@ -1,35 +1,112 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <title>FutureYou Test</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #444; /* simple couleur de fond */
-            color: #fff;
-            margin: 0;
-            padding: 20px;
-        }
-        h1 {
-            color: #1E90FF;
-        }
-        a.btn {
-            display: inline-block;
-            padding: 10px 20px;
-            margin: 10px 0;
-            background-color: #1E90FF;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FutureYou</title>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: url('fond-de-page.png') no-repeat center center fixed;
+    background-size: cover;
+    color: #fff;
+    line-height: 1.6;
+}
+
+header {
+    background: linear-gradient(90deg, #1E90FF, #187bcd);
+    color: white;
+    padding: 50px 20px;
+    text-align: center;
+    position: relative;
+}
+header h1 { margin:0; }
+header img {
+    position: absolute;
+    top:10px;
+    right:10px;
+    width:80px;
+    border-radius:50%;
+    border:2px solid white;
+}
+
+section {
+    max-width: 900px;
+    margin: 30px auto;
+    background-color: rgba(0,0,0,0.5);
+    padding:30px;
+    border-radius:15px;
+}
+
+h2 { color: #1E90FF; margin-bottom:15px; }
+
+p, li { font-size:1.1em; margin-bottom:10px; }
+ul { list-style: inside disc; margin-left:10px; }
+
+.btn {
+    display:inline-block;
+    padding:12px 25px;
+    margin:10px 10px 0 0;
+    background-color:#1E90FF;
+    color:white;
+    text-decoration:none;
+    border-radius:8px;
+    font-weight:bold;
+}
+.btn:hover { background-color:#187bcd; }
+
+footer {
+    text-align:center;
+    padding:20px;
+    background-color:#333;
+    color:white;
+    margin-top:30px;
+}
+
+@media (max-width:600px) {
+    header h1 { font-size:2em; }
+    header img { width:60px; top:5px; right:5px; }
+    section { margin:20px 15px; padding:20px; }
+    .btn { display:block; width:100%; margin-bottom:10px; }
+}
+</style>
 </head>
 <body>
-    <h1>Bienvenue sur FutureYou</h1>
-    <p>Si tu vois ce texte, la page fonctionne correctement.</p>
+<header>
+<h1>Bienvenue sur FutureYou</h1>
+<img src="moi.png" alt="Moi">
+</header>
 
-    <a href="#" class="btn" target="_blank">Bouton test</a>
+<section>
+<h2>À propos du projet</h2>
+<p>FutureYou vous aide à visualiser et planifier votre futur.</p>
+
+<a href="mentors.html" class="btn" target="_blank">Mentors</a>
+<a href="microcompetences.html" class="btn" target="_blank">MicroCompetences</a>
+<a href="projets-collaboratifs.html" class="btn" target="_blank">Projets-Collaboratifs</a>
+<a href="profil.html" class="btn" target="_blank">Profil</a>
+</section>
+
+<section id="features">
+<h2>Fonctionnalités</h2>
+<ul>
+<li>Visualiser vos objectifs à court et long terme</li>
+<li>Suivi de progression personnalisé</li>
+<li>Interface simple et intuitive</li>
+<li>Optimisé pour tous les écrans (mobile & desktop)</li>
+</ul>
+</section>
+
+<section>
+<h2>Contact</h2>
+<p>Envie d’en savoir plus ou de contribuer au projet ?</p>
+<a href="mailto:contact@futureyou.com" class="btn" target="_blank">Contactez-nous</a>
+</section>
+
+<footer>
+&copy; 2026 FutureYou. Tous droits réservés.
+</footer>
 </body>
 </html>
-   
