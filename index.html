@@ -68,16 +68,18 @@
             z-index: 1;
         }
 
-        /* Titres en bleu assorti (remplace le vert) */
+        /* Titres en bleu, plus de vert */
         h2 {
             margin-bottom: 15px;
-            color: #1E90FF; /* bleu */
+            color: #1E90FF; /* bleu assorti */
+            text-decoration: none; /* pas de soulignement */
+            border-bottom: none; /* pas de ligne */
         }
 
         p, li {
             margin-bottom: 10px;
             font-size: 1.1em;
-            color: #ffffff;
+            color: #ffffff; /* texte blanc */
         }
 
         ul {
@@ -90,13 +92,99 @@
             display: inline-block;
             padding: 12px 25px;
             margin: 10px 10px 0 0;
-            background-color: #1E90FF; /* bleu */
+            background-color: #1E90FF; /* bleu principal */
             color: white;
-            text-decoration: none;
+            text-decoration: none; /* pas de soulignement */
             border-radius: 8px;
             font-weight: bold;
             transition: background 0.3s;
+            z-index: 2;
+            border-bottom: none; /* supprime ligne éventuelle */
         }
 
         .btn:hover {
-            back
+            background-color: #187bcd; /* bleu plus foncé au hover */
+        }
+
+        /* Forcer les liens dans les sections à hériter de la couleur */
+        section a {
+            color: inherit;
+            text-decoration: none;
+            border-bottom: none;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            color: white;
+            margin-top: 30px;
+        }
+
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 2em;
+            }
+
+            header img {
+                width: 60px;
+                top: 5px;
+                right: 5px;
+            }
+
+            section {
+                margin: 20px 15px;
+                padding: 20px;
+            }
+
+            .btn {
+                display: block;
+                width: 100%;
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Bienvenue sur FutureYou</h1>
+        <img src="Moi.png" alt="Moi">
+    </header>
+
+    <!-- Section À propos + boutons -->
+    <section>
+        <h2>À propos du projet</h2>
+        <p>FutureYou est un projet qui vous aide à visualiser et planifier votre futur. Grâce à cette page, vous pouvez suivre vos objectifs et imaginer la meilleure version de vous-même.</p>
+        
+        <!-- Boutons visibles sur la première section et ouvrant une nouvelle page -->
+        <a href="mentors.html" class="btn" target="_blank">Rencontrez vos mentors invisibles</a>
+        <a href="microcompetences.html" class="btn" target="_blank">Échanges de Micro-Compétences</a>
+        <a href="projets-collaboratifs.html" class="btn" target="_blank">Projets Collaboratifs</a>
+        <a href="profil.html" class="btn" target="_blank">Ton Profil Trajet de Vie</a>
+    </section>
+
+    <!-- Section Fonctionnalités -->
+    <section id="features">
+        <h2>Fonctionnalités</h2>
+        <ul>
+            <li>Visualiser vos objectifs à court et long terme</li>
+            <li>Suivi de progression personnalisé</li>
+            <li>Interface simple et intuitive</li>
+            <li>Optimisé pour tous les écrans (mobile & desktop)</li>
+        </ul>
+    </section>
+
+    <!-- Section Contact -->
+    <section>
+        <h2>Contact</h2>
+        <p>Envie d’en savoir plus ou de contribuer au projet ?</p>
+        <a href="mailto:contact@futureyou.com" class="btn" target="_blank">Contactez-nous</a>
+    </section>
+
+    <footer>
+        &copy; 2026 FutureYou. Tous droits réservés.
+    </footer>
+</body>
+</html>
+
+   
