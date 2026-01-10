@@ -2,6 +2,138 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FutureYou</title>
+    <!-- CSS intégré pour le style -->
+    <style>
+        /* Reset simple */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f5f6fa;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(90deg, #4CAF50, #45a049);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            font-size: 2.5em;
+        }
+
+        section {
+            max-width: 900px;
+            margin: 30px auto;
+            background-color: white;
+            padding: 25px 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        section:hover {
+            transform: translateY(-5px);
+        }
+
+        h2 {
+            margin-bottom: 15px;
+            color: #4CAF50;
+        }
+
+        p, li {
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        ul {
+            list-style: inside disc;
+            margin-left: 10px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            margin-top: 15px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #45a049;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            color: white;
+            margin-top: 30px;
+        }
+
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 2em;
+            }
+
+            section {
+                margin: 20px 15px;
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Bienvenue sur FutureYou</h1>
+    </header>
+
+    <section>
+        <h2>À propos du projet</h2>
+        <p>FutureYou est un projet qui vous aide à visualiser et planifier votre futur grâce à cette page web.</p>
+        <a href="#features" class="btn">Découvrir les fonctionnalités</a>
+    </section>
+
+    <section id="features">
+        <h2>Fonctionnalités</h2>
+        <ul>
+            <li>Visualiser vos objectifs à court et long terme</li>
+            <li>Suivi de progression personnalisé</li>
+            <li>Interface simple et intuitive</li>
+            <li>Optimisé pour tous les écrans (mobile & desktop)</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Contact</h2>
+        <p>Envie d’en savoir plus ou de contribuer au projet ?</p>
+        <a href="mailto:contact@futureyou.com" class="btn">Envoyer un email</a>
+    </section>
+
+    <footer>
+        &copy; 2026 FutureYou
+    </footer>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
     <title>FutureYou</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Style CSS intégré -->
