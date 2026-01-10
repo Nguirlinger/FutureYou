@@ -5,15 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FutureYou</title>
     <style>
+        /* Corps de la page */
         body {
-             font-family: Arial, sans-serif;
-             margin: 0;
-             padding: 0;
-             /* Fond d'écran avec ton image */
-             background: url('Fond de page.png') no-repeat center center fixed;
-             background-size: cover; /* couvre tout l'écran */
-             color: #fff; /* texte visible sur l'image */
-             line-height: 1.6;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f6fa; /* couleur neutre pour le corps */
+            color: #333;
+            line-height: 1.6;
         }
 
         header {
@@ -25,19 +24,41 @@
 
         header h1 {
             font-size: 2.8em;
+            margin: 0;
         }
 
+        /* Sections avec fond personnalisé */
         section {
-             max-width: 900px;
-             margin: 30px auto;
-             background: url('Fond de page.png') no-repeat center center;
-             background-size: cover; /* couvre toute la section */
-             color: white;           /* texte lisible sur l'image */
-             padding: 30px;
-             border-radius: 15px;
-             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-             transition: transform 0.3s;
-             position: relative;
+            max-width: 900px;
+            margin: 30px auto;
+            background: url('Fond de page.png') no-repeat center center;
+            background-size: cover;
+            color: white; /* texte visible sur l'image */
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            position: relative; /* nécessaire pour l'overlay */
+            overflow: hidden;
+        }
+
+        /* Overlay sombre pour lisibilité */
+        section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.4); /* semi-transparent */
+            z-index: 0; 
+            border-radius: 15px;
+        }
+
+        /* Contenu au-dessus de l'overlay */
+        section * {
+            position: relative;
+            z-index: 1;
         }
 
         section:hover {
@@ -75,16 +96,6 @@
             background-color: #45a049;
         }
 
-        .feature-image {
-            width: 100%;
-            max-width: 400px;
-            border-radius: 10px;
-            margin: 15px 0;
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
         footer {
             text-align: center;
             padding: 20px;
@@ -102,10 +113,6 @@
                 margin: 20px 15px;
                 padding: 20px;
             }
-
-            .feature-image {
-                max-width: 100%;
-            }
         }
     </style>
 </head>
@@ -118,8 +125,6 @@
     <section>
         <h2>À propos du projet</h2>
         <p>FutureYou est un projet qui vous aide à visualiser et planifier votre futur. Grâce à cette page, vous pouvez suivre vos objectifs et imaginer la meilleure version de vous-même.</p>
-        <!-- Remplace "image1.jpg" par ton image du projet -->
-        <img src="Fond de page.png" alt="Fond de page.png" class="feature-image">
         <a href="#features" class="btn">Découvrir les fonctionnalités</a>
     </section>
 
@@ -132,17 +137,17 @@
             <li>Interface simple et intuitive</li>
             <li>Optimisé pour tous les écrans (mobile & desktop)</li>
         </ul>
-        <!-- Remplace "image2.jpg" par ton image des fonctionnalités -->
-        <img src="image2.jpg" alt="Fonctionnalités" class="feature-image">
     </section>
 
     <!-- Section Contact -->
     <section>
         <h2>Contact</h2>
         <p>Envie d’en savoir plus ou de contribuer au projet ?</p>
-        <a href="mailto:contact@futureyou.com" c
+        <a href="mailto:contact@futureyou.com" class="btn">Contactez-nous</a>
+    </section>
 
-
-
-
-   
+    <footer>
+        &copy; 2026 FutureYou. Tous droits réservés.
+    </footer>
+</body>
+</html>
