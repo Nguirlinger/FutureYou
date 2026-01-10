@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ton Profil Trajet de Vie</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('Fond-de-page.png') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+            line-height: 1.6;
+        }
+        header {
+            background: linear-gradient(90deg, #1E90FF, #187bcd);
+            color: white;
+            padding: 50px 20px;
+            text-align: center;
+            position: relative;
+        }
+        header img {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 80px;
+            border-radius: 50%;
+            border: 2px solid white;
+        }
+        h1 { margin: 0 0 20px; }
+        section {
+            max-width: 900px;
+            margin: 30px auto;
+            background-color: rgba(0,0,0,0.5);
+            padding: 30px;
+            border-radius: 15px;
+        }
+        a.btn {
+            display: inline-block;
+            padding: 12px 25px;
+            margin-top: 15px;
+            background-color: #1E90FF;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+        }
+        a.btn:hover { background-color: #187bcd; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Ton Profil Trajet de Vie</h1>
+        <img src="Moi.png" alt="Moi">
+    </header>
+    <section>
+        <p>Contenu à venir… ici tu pourras présenter le profil et le trajet de vie.</p>
+        <a href="index.html" class="btn">Retour à l’accueil</a>
+    </section>
+</body>
+</html>
