@@ -3,45 +3,206 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Rencontrez vos mentors invisibles - FutureYou</title>
+<title>MeanSet Academy - Mentors</title>
+
 <style>
 body {
-    margin:0; padding:0; font-family: Arial, sans-serif; line-height: 1.6; color:white;
-    background-image: url("page/page.png"); background-repeat:no-repeat; background-position:center; background-attachment:fixed; background-size:cover;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: url('page/page.png') no-repeat center center fixed;
+    background-size: cover;
+    color: white;
 }
-header { background: rgba(0,0,0,0.6); padding:40px 20px; text-align:center; position:relative; }
-header h1 { margin:0; color:#4fa3ff; }
-header img { position:absolute; top:10px; right:10px; width:80px; height:auto; border-radius:50%; border:2px solid white; display:block; }
-section { max-width:900px; margin:30px auto; padding:30px; border-radius:15px; background-color: rgba(0,0,0,0.3);}
-h2 { color:#4fa3ff; margin-bottom:15px; }
-p, li { margin-bottom:10px; font-size:1.1em; }
-ul { list-style: inside disc; margin-left:10px; }
-.btn { display:inline-block; background:#4fa3ff; color:white; padding:12px 25px; border-radius:8px; text-decoration:none; font-weight:bold; margin:10px 10px 0 0; }
-.btn:hover { background:#2c7bdc; }
-footer { background:black; padding:20px; text-align:center; margin-top:40px; }
-@media(max-width:600px) { header h1{font-size:1.8em;} header img{width:60px; top:5px; right:5px;} section{margin:20px 15px; padding:20px;} .btn{display:block;width:100%; margin-bottom:10px;} }
+
+/* Header */
+header {
+    background: linear-gradient(90deg, #0f4c81, #1E90FF);
+    padding: 20px 30px;
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    width: 90px;
+    background: white;
+    padding: 8px;
+    border-radius: 12px;
+}
+
+.profile-pic {
+    width: 70px;
+    border-radius: 50%;
+    border: 2px solid white;
+}
+
+.title-block {
+    text-align: center;
+    flex: 1;
+}
+
+.title-block h1 {
+    margin: 0;
+    font-size: 2.4em;
+}
+
+.slogan {
+    margin-top: 6px;
+    font-size: 1em;
+    opacity: 0.9;
+}
+
+/* Sections */
+section {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 30px;
+    background: rgba(0,0,0,0.6);
+    border-radius: 15px;
+}
+
+h2 {
+    color: #66b3ff;
+    margin-bottom: 20px;
+}
+
+/* Mentor grid */
+.mentor-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.mentor-card {
+    background: rgba(255,255,255,0.1);
+    padding: 15px;
+    border-radius: 12px;
+    text-align: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.mentor-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.4);
+}
+
+.mentor-card img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 2px solid #66b3ff;
+    margin-bottom: 10px;
+}
+
+.mentor-card h3 {
+    margin: 8px 0 5px;
+}
+
+.mentor-card p {
+    font-size: 0.95em;
+}
+
+.mentor-card .btn {
+    margin: 8px 5px 0 5px;
+    display: inline-block;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    background: #1E90FF;
+    color: white;
+    padding: 10px 18px;
+    border-radius: 8px;
+    margin-top: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.9em;
+}
+
+.btn:hover {
+    background: #0f4c81;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: rgba(0,0,0,0.7);
+    margin-top: 40px;
+}
+
+@media (max-width: 600px){
+    .title-block h1 {
+        font-size: 1.8em;
+    }
+
+    .mentor-card img {
+        width: 100px;
+        height: 100px;
+    }
+}
 </style>
 </head>
+
 <body>
 
 <header>
-<h1>Rencontrez vos mentors invisibles</h1>
-<img src="moi.png" alt="Moi">
+    <div class="header-content">
+        <img src="logo.png" class="logo" alt="MeanSet Academy">
+        <div class="title-block">
+            <h1>MeanSet Academy</h1>
+            <p class="slogan">Club virtuel & réel — Mentors, savoir-faire et savoir-être</p>
+        </div>
+        <img src="moi.png" class="profile-pic" alt="Fondateur">
+    </div>
 </header>
 
 <section>
-<h2>À propos des mentors</h2>
-<p>Cette page présente vos mentors invisibles, disponibles pour vous guider et partager leur expérience.</p>
-<ul>
-<li>Mentor 1 : Spécialiste en développement personnel</li>
-<li>Mentor 2 : Expert en organisation et productivité</li>
-<li>Mentor 3 : Conseiller pour projets collaboratifs</li>
-</ul>
+<h2>Nos Mentors</h2>
+<p>Découvrez nos mentors experts. Vous pouvez les rencontrer <strong>en ligne</strong> via notre plateforme immersive, ou <strong>en présentiel</strong> lors de nos ateliers. Chaque mentor vous guide sur vos projets, partage ses compétences et accompagne votre progression.</p>
 
-<a class="btn" href="index.html">Retour à l’accueil</a>
+<div class="mentor-grid">
+    <!-- Mentor 1 -->
+    <div class="mentor-card">
+        <img src="page/mentor1.png" alt="Mentor 1">
+        <h3>Marie Dupont</h3>
+        <p>Marketing digital & stratégie de croissance</p>
+        <a href="#" class="btn">Voir profil</a>
+        <a href="#" class="btn">Session virtuelle</a>
+        <a href="#" class="btn">Atelier réel</a>
+    </div>
+
+    <!-- Mentor 2 -->
+    <div class="mentor-card">
+        <img src="page/mentor2.png" alt="Mentor 2">
+        <h3>Jean Martin</h3>
+        <p>Entrepreneuriat & levée de fonds</p>
+        <a href="#" class="btn">Voir profil</a>
+        <a href="#" class="btn">Session virtuelle</a>
+        <a href="#" class="btn">Atelier réel</a>
+    </div>
+
+    <!-- Mentor 3 -->
+    <div class="mentor-card">
+        <img src="page/mentor3.png" alt="Mentor 3">
+        <h3>Claire Bernard</h3>
+        <p>Design UX/UI & expérience utilisateur</p>
+        <a href="#" class="btn">Voir profil</a>
+        <a href="#" class="btn">Session virtuelle</a>
+        <a href="#" class="btn">Atelier réel</a>
+    </div>
+</div>
 </section>
 
-<footer>© 2026 – FutureYou</footer>
+<footer>
+© 2026 MeanSet Academy — Tous droits réservés
+</footer>
 
 </body>
 </html>
+
