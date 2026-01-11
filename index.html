@@ -4,10 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>FutureYou</title>
-
 <style>
-body{
-   margin: 0;
+body {
+    margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
     background-image: url("page/page.png");
@@ -16,67 +15,96 @@ body{
     background-attachment: fixed;
     background-size: cover;
     color: white;
+    line-height: 1.6;
 }
 
-/* Bandeau du haut */
-header{
+/* Header avec photo en haut à droite */
+header {
     background: rgba(0,0,0,0.6);
-    padding:40px 20px;
-    text-align:center;
-    position:relative;
+    padding: 40px 20px;
+    text-align: center;
+    position: relative;
 }
-header img{
-    position:absolute;
-    top:10px;
-    right:10px;
-    width:80px;
-    border-radius:50%;
-    border:2px solid white;
+header h1 {
+    margin: 0;
+    color: #4fa3ff;
 }
-h1{
-    margin:0;
-    color:#4fa3ff;
+header img {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 80px;
+    border-radius: 50%;
+    border: 2px solid white;
 }
 
 /* Sections */
-section{
+section {
     background: rgba(0,0,0,0.65);
-    margin:30px auto;
-    max-width:900px;
-    padding:30px;
-    border-radius:15px;
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 30px;
+    border-radius: 15px;
 }
-h2{
-    color:#4fa3ff;
+h2 {
+    color: #4fa3ff;
+    margin-bottom: 15px;
+}
+p, li {
+    margin-bottom: 10px;
+    font-size: 1.1em;
+}
+ul {
+    list-style: inside disc;
+    margin-left: 10px;
 }
 
 /* Boutons */
-.btn{
-    display:inline-block;
-    background:#4fa3ff;
-    color:white;
-    padding:12px 25px;
-    border-radius:8px;
-    text-decoration:none;
-    font-weight:bold;
-    margin:10px 10px 0 0;
+.btn {
+    display: inline-block;
+    background: #4fa3ff;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    margin: 10px 10px 0 0;
 }
-.btn:hover{
-    background:#2c7bdc;
+.btn:hover {
+    background: #2c7bdc;
 }
 
 /* Pied de page */
-footer{
-    background:black;
-    padding:20px;
-    text-align:center;
-    margin-top:40px;
+footer {
+    background: black;
+    padding: 20px;
+    text-align: center;
+    margin-top: 40px;
+}
+
+@media (max-width:600px) {
+    header h1 {
+        font-size: 1.8em;
+    }
+    header img {
+        width: 60px;
+        top: 5px;
+        right: 5px;
+    }
+    section {
+        margin: 20px 15px;
+        padding: 20px;
+    }
+    .btn {
+        display: block;
+        width: 100%;
+        margin-bottom: 10px;
+    }
 }
 </style>
 </head>
 
 <body>
-
 <header>
     <h1>Bienvenue sur FutureYou</h1>
     <img src="Moi.png" alt="Moi">
@@ -84,11 +112,7 @@ footer{
 
 <section>
     <h2>À propos du projet</h2>
-    <p>
-        FutureYou est une plateforme qui vous aide à visualiser, construire et
-        connecter votre avenir. Ici, vous pouvez rencontrer des mentors,
-        échanger des compétences et bâtir des projets ensemble.
-    </p>
+    <p>FutureYou est une plateforme qui vous aide à visualiser, construire et connecter votre avenir. Vous pouvez rencontrer des mentors, échanger des compétences et créer des projets collaboratifs.</p>
 
     <a class="btn" href="mentors.html" target="_blank">Rencontrez vos mentors invisibles</a>
     <a class="btn" href="microcompetences.html" target="_blank">Échanges de Micro-Compétences</a>
@@ -115,7 +139,7 @@ footer{
 <footer>
     © 2026 – FutureYou
 </footer>
-
 </body>
 </html>
+
 
