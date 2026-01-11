@@ -6,7 +6,6 @@
 <title>MeanSet Academy - Profil Mentor</title>
 
 <style>
-/* Style général */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -16,7 +15,6 @@ body {
     color: white;
 }
 
-/* Header identique à index et mentors */
 header {
     background: linear-gradient(90deg, #0f4c81, #1E90FF);
     padding: 20px 30px;
@@ -28,100 +26,24 @@ header {
     justify-content: space-between;
 }
 
-.logo {
-    width: 90px;
-    background: white;
-    padding: 8px;
-    border-radius: 12px;
-}
+.logo { width: 90px; background: white; padding: 8px; border-radius: 12px; }
+.profile-pic { width: 70px; border-radius: 50%; border: 2px solid white; }
+.title-block { text-align: center; flex: 1; }
+.title-block h1 { margin: 0; font-size: 2.4em; }
+.slogan { margin-top: 6px; font-size: 1em; opacity: 0.9; }
 
-.profile-pic {
-    width: 70px;
-    border-radius: 50%;
-    border: 2px solid white;
-}
-
-.title-block {
-    text-align: center;
-    flex: 1;
-}
-
-.title-block h1 {
-    margin: 0;
-    font-size: 2.4em;
-}
-
-.slogan {
-    margin-top: 6px;
-    font-size: 1em;
-    opacity: 0.9;
-}
-
-/* Section formulaire */
-section {
-    max-width: 700px;
-    margin: 50px auto;
-    padding: 30px;
-    background: rgba(0,0,0,0.6);
-    border-radius: 15px;
-}
-
-h2 {
-    color: #66b3ff;
-    margin-bottom: 20px;
-    text-align: center;
-}
-
-/* Formulaire */
-form {
-    display: flex;
-    flex-direction: column;
-}
-
-label {
-    margin-top: 15px;
-    font-weight: bold;
-}
-
-input, textarea, select {
-    margin-top: 5px;
-    padding: 8px;
-    border-radius: 6px;
-    border: none;
-    font-size: 1em;
-}
-
-textarea {
-    resize: vertical;
-}
-
-/* Boutons */
-.btn {
-    margin-top: 20px;
-    padding: 12px;
-    background: #1E90FF;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    font-weight: bold;
-    cursor: pointer;
-    text-decoration: none;
-    text-align: center;
-}
-
-.btn:hover {
-    background: #0f4c81;
-}
-
-/* Bouton retour accueil en bas */
-#btn-accueil {
-    position: fixed;
-    bottom: 20px;
-    left: 20px;
-}
+section { max-width: 700px; margin: 50px auto; padding: 30px; background: rgba(0,0,0,0.6); border-radius: 15px; }
+h2 { color: #66b3ff; margin-bottom: 20px; text-align: center; }
+form { display: flex; flex-direction: column; }
+label { margin-top: 15px; font-weight: bold; }
+input, textarea { margin-top: 5px; padding: 8px; border-radius: 6px; border: none; font-size: 1em; }
+textarea { resize: vertical; }
+.btn { margin-top: 20px; padding: 12px; background: #1E90FF; color: white; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; text-align: center; }
+.btn:hover { background: #0f4c81; }
+#btn-accueil { position: fixed; bottom: 20px; left: 20px; }
+#confirmation { margin-top: 15px; color: #90ee90; font-weight: bold; }
 </style>
 </head>
-
 <body>
 
 <header>
@@ -139,7 +61,7 @@ textarea {
 <h2>Profil Mentor</h2>
 <p>Remplissez vos informations pour que votre profil apparaisse sur MeanSet Academy. Tous les champs sont facultatifs mais plus vous détaillez, plus votre profil sera visible et utile.</p>
 
-<form>
+<form id="mentorForm">
     <label>Nom et prénom</label>
     <input type="text" name="nom" placeholder="Ex: Marie Dupont">
 
@@ -162,11 +84,30 @@ textarea {
     <textarea name="bio" rows="4" placeholder="Ex: Mentor expert en marketing digital..."></textarea>
 
     <button type="submit" class="btn">Envoyer</button>
+    <div id="confirmation"></div>
 </form>
 </section>
 
-<!-- Bouton retour accueil en bas à gauche -->
+<!-- Bouton retour accueil -->
 <a href="index.html" class="btn" id="btn-accueil">Retour à l'accueil</a>
+
+<script>
+document.getElementById('mentorForm').addEventListener('submit', function(e){
+    e.preventDefault(); // Empêche le reload
+    const formData = new FormData(this);
+    const data = {};
+    formData.forEach((value, key) => { data[key] = value; });
+
+    // Ici tu pourras envoyer les données à ton serveur
+    console.log('Profil mentor envoyé (simulation) :', data);
+
+    // Message confirmation
+    document.getElementById('confirmation').innerText = 
+        'Profil envoyé ! En attente de validation avant publication.';
+    
+    this.reset();
+});
+</script>
 
 </body>
 </html>
