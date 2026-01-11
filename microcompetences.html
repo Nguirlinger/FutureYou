@@ -56,16 +56,19 @@ footer { background:black; padding:20px; text-align:center; margin-top:40px; }
 <footer>© 2026 – FutureYou</footer>
 
 <script>
-function rechercher() {
-    const mot = document.getElementById("motCle").value.trim().toLowerCase();
+// Normalise le texte : minuscules + suppression des accents
+function normalizeText(text) {
+    return text.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+}
 
-    // Définir tous les tutoriels et mots-clés associés
+function rechercher() {
+    const mot = normalizeText(document.getElementById("motCle").value.trim());
+    
     const tutoriels = {
         "apprentissage": "https://www.youtube.com/watch?v=EXEMPLE_TUTO1",
         "partage": "https://www.youtube.com/watch?v=EXEMPLE_TUTO2",
         "collaboration": "https://www.youtube.com/watch?v=EXEMPLE_TUTO3",
         "création site internet": "https://www.youtube.com/watch?v=VIDEO_SITE"
-        "nouveau mot-clé": "URL_de_la_video",
     };
 
     if(mot === "") {
@@ -73,10 +76,9 @@ function rechercher() {
         return;
     }
 
-    // Recherche "contient" pour trouver partiellement
     let trouve = false;
     for (let key in tutoriels) {
-        if(key.includes(mot)) {
+        if(normalizeText(key).includes(mot)) {
             document.getElementById("resultat").innerHTML = `Voici le tutoriel correspondant : <a href="${tutoriels[key]}" target="_blank">${key}</a>`;
             trouve = true;
             break;
@@ -91,3 +93,4 @@ function rechercher() {
 
 </body>
 </html>
+
