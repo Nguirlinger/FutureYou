@@ -1,140 +1,112 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FutureYou</title>
-<style>
-body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    background-image: url("page/page.png");
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-attachment: fixed;
-    background-size: cover;
-    color: white;
-    line-height: 1.6;
-}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FutureYou</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('Fond-de-page.png') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+            line-height: 1.6;
+        }
 
-/* Header avec photo en haut à droite */
-header {
-    background: rgba(0,0,0,0.6);
-    padding: 40px 20px;
-    text-align: center;
-    position: relative;
-}
-header h1 {
-    margin: 0;
-    color: #4fa3ff;
-}
-header img {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    width: 80px;
-    height: auto;
-    border-radius: 50%;
-    border: 2px solid white;
-    display: block;
-}
+        header {
+            background: linear-gradient(90deg, #1E90FF, #187bcd);
+            color: white;
+            padding: 50px 20px;
+            text-align: center;
+            position: relative;
+        }
+        header h1 { margin: 0; }
+        header img {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 80px;
+            border-radius: 50%;
+            border: 2px solid white;
+        }
 
-/* Sections */
-section {
-    background: rgba(0,0,0,0.65);
-    max-width: 900px;
-    margin: 30px auto;
-    padding: 30px;
-    border-radius: 15px;
-}
-h2 {
-    color: #4fa3ff;
-    margin-bottom: 15px;
-}
-p, li {
-    margin-bottom: 10px;
-    font-size: 1.1em;
-}
-ul {
-    list-style: inside disc;
-    margin-left: 10px;
-}
+        section {
+            max-width: 900px;
+            margin: 30px auto;
+            background-color: rgba(0,0,0,0.5);
+            padding: 30px;
+            border-radius: 15px;
+        }
 
-/* Boutons */
-.btn {
-    display: inline-block;
-    background: #4fa3ff;
-    color: white;
-    padding: 12px 25px;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: bold;
-    margin: 10px 10px 0 0;
-}
-.btn:hover {
-    background: #2c7bdc;
-}
+        h2 { color: #1E90FF; margin-bottom: 15px; }
 
-/* Pied de page */
-footer {
-    background: black;
-    padding: 20px;
-    text-align: center;
-    margin-top: 40px;
-}
+        p, li { font-size: 1.1em; margin-bottom: 10px; }
+        ul { list-style: inside disc; margin-left: 10px; }
 
-@media (max-width:600px) {
-    header h1 {
-        font-size: 1.8em;
-    }
-    header img {
-        width: 60px;
-        top: 5px;
-        right: 5px;
-    }
-    section {
-        margin: 20px 15px;
-        padding: 20px;
-    }
-    .btn {
-        display: block;
-        width: 100%;
-        margin-bottom: 10px;
-    }
-}
-</style>
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            margin: 10px 10px 0 0;
+            background-color: #1E90FF;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+        .btn:hover { background-color: #187bcd; }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            color: white;
+            margin-top: 30px;
+        }
+
+        @media (max-width: 600px) {
+            header h1 { font-size: 2em; }
+            header img { width: 60px; top: 5px; right: 5px; }
+            section { margin: 20px 15px; padding: 20px; }
+            .btn { display: block; width: 100%; margin-bottom: 10px; }
+        }
+    </style>
 </head>
-
 <body>
-<header>
-    <h1>Bienvenue sur FutureYou</h1>
-    <img src="Moi.png" alt="Moi">
-</header>
+    <header>
+        <h1>Bienvenue sur FutureYou</h1>
+        <img src="Moi.png" alt="Moi">
+    </header>
 
-<section>
-    <h2>À propos du projet</h2>
-    <p>FutureYou est une plateforme qui vous aide à visualiser, construire et connecter votre avenir. Vous pouvez rencontrer des mentors, échanger des compétences et créer des projets collaboratifs.</p>
+    <section>
+        <h2>À propos du projet</h2>
+        <p>FutureYou vous aide à visualiser et planifier votre futur.</p>
+        <a href="mentors.html" class="btn" target="_blank">Rencontrez vos mentors invisibles</a>
+        <a href="microcompetences.html" class="btn" target="_blank">Échanges de Micro-Compétences</a>
+        <a href="projets-collaboratifs.html" class="btn" target="_blank">Projets Collaboratifs</a>
+        <a href="profil.html" class="btn" target="_blank">Ton Profil Trajet de Vie</a>
+    </section>
 
-    <a class="btn" href="mentors.html" target="_blank">Rencontrez vos mentors invisibles</a>
-    <a class="btn" href="microcompetences.html" target="_blank">Échanges de Micro-Compétences</a>
-    <a class="btn" href="projets-collaboratifs.html" target="_blank">Projets Collaboratifs</a>
-    <a class="btn" href="profil.html" target="_blank">Ton Profil – Trajet de Vie</a>
-</section>
+    <section id="features">
+        <h2>Fonctionnalités</h2>
+        <ul>
+            <li>Visualiser vos objectifs à court et long terme</li>
+            <li>Suivi de progression personnalisé</li>
+            <li>Interface simple et intuitive</li>
+            <li>Optimisé pour tous les écrans (mobile & desktop)</li>
+        </ul>
+    </section>
 
-<section>
-    <h2>Fonctionnalités</h2>
-    <ul>
-        <li>Visualiser vos objectifs</li>
-        <li>Suivre votre évolution personnelle</li>
-        <li>Collaborer avec d’autres utilisateurs</li>
-        <li>Créer votre trajectoire de vie</li>
-    </ul>
-</section>
+    <section>
+        <h2>Contact</h2>
+        <p>Envie d’en savoir plus ou de contribuer au projet ?</p>
+        <a href="mailto:contact@futureyou.com" class="btn" target="_blank">Contactez-nous</a>
+    </section>
 
-<section>
-    <h2>Contact</h2>
-    <p>Envie d’en savoir plus ou de participer au projet ?</p>
-    <a class="btn" href="mailto:contact@futureyou.com">Contactez-
-
+    <footer>
+        &copy; 2026 FutureYou. Tous droits réservés.
+    </footer>
+</body>
+</html>
 
