@@ -37,6 +37,7 @@ footer { background:black; padding:20px; text-align:center; margin-top:40px; }
 <li><a href="https://www.youtube.com/watch?v=EXEMPLE_TUTO1" target="_blank">Apprentissage rapide</a></li>
 <li><a href="https://www.youtube.com/watch?v=EXEMPLE_TUTO2" target="_blank">Partage de savoir-faire</a></li>
 <li><a href="https://www.youtube.com/watch?v=EXEMPLE_TUTO3" target="_blank">Collaboration pratique</a></li>
+<li><a href="https://www.youtube.com/watch?v=VIDEO_SITE" target="_blank">Création site internet</a></li>
 </ul>
 
 <!-- Champ mot-clé -->
@@ -57,24 +58,31 @@ footer { background:black; padding:20px; text-align:center; margin-top:40px; }
 <script>
 function rechercher() {
     const mot = document.getElementById("motCle").value.trim().toLowerCase();
-    let lien = "";
-    // Définir des mots-clés et leurs liens vidéo
+
+    // Définir tous les tutoriels et mots-clés associés
     const tutoriels = {
         "apprentissage": "https://www.youtube.com/watch?v=EXEMPLE_TUTO1",
         "partage": "https://www.youtube.com/watch?v=EXEMPLE_TUTO2",
-        "collaboration": "https://www.youtube.com/watch?v=EXEMPLE_TUTO3"
+        "collaboration": "https://www.youtube.com/watch?v=EXEMPLE_TUTO3",
+        "création site internet": "https://www.youtube.com/watch?v=VIDEO_SITE"
     };
 
-    // Cherche le mot-clé
     if(mot === "") {
         document.getElementById("resultat").innerHTML = "Veuillez entrer un mot-clé.";
         return;
     }
 
-    if(tutoriels[mot]) {
-        lien = tutoriels[mot];
-        document.getElementById("resultat").innerHTML = `Voici le tutoriel correspondant : <a href="${lien}" target="_blank">${mot}</a>`;
-    } else {
+    // Recherche "contient" pour trouver partiellement
+    let trouve = false;
+    for (let key in tutoriels) {
+        if(key.includes(mot)) {
+            document.getElementById("resultat").innerHTML = `Voici le tutoriel correspondant : <a href="${tutoriels[key]}" target="_blank">${key}</a>`;
+            trouve = true;
+            break;
+        }
+    }
+
+    if(!trouve){
         document.getElementById("resultat").textContent = `Aucun tutoriel trouvé pour "${mot}".`;
     }
 }
