@@ -177,28 +177,25 @@ document.getElementById('mentorForm').addEventListener('submit', function(e){
     e.preventDefault();
 
     const formData = new FormData(this);
-    const data = {};
-    formData.forEach((value, key) => data[key] = value);
+    const mentor = {};
 
-    // 👉 Colle ici l’URL de ton Google Apps Script
-    const scriptURL = "https://script.google.com/macros/s/XXXX/exec";
-
-    fetch(scriptURL, {
-        method: "POST",
-        body: JSON.stringify(data),
-        headers: { "Content-Type": "application/json" }
-    })
-    .then(response => response.json())
-    .then(result => {
-        document.getElementById("confirmation").innerText =
-          "Profil envoyé ! Il sera publié après validation par l’équipe MeanSet Academy.";
-        document.getElementById("mentorForm").reset();
-    })
-    .catch(error => {
-        document.getElementById("confirmation").innerText =
-          "Erreur lors de l’envoi. Veuillez réessayer.";
-        console.error(error);
+    formData.forEach((value, key) => {
+        mentor[key] = value;
     });
+
+    const json = JSON.stringify(mentor, null, 2);
+
+    const message = 
+        "COPIE CE TEXTE ET ENVOIE-LE À MEANSET ACADEMY\n\n" +
+        json +
+        "\n\nAprès validation, ton profil sera publié.";
+
+    alert(message);
+
+    document.getElementById("confirmation").innerText =
+        "Profil généré. Copie le message affiché et envoie-le à l’administrateur.";
+
+    this.reset();
 });
 </script>
 
