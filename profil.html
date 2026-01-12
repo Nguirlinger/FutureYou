@@ -26,24 +26,103 @@ header {
     justify-content: space-between;
 }
 
-.logo { width: 90px; background: white; padding: 8px; border-radius: 12px; }
-.profile-pic { width: 70px; border-radius: 50%; border: 2px solid white; }
-.title-block { text-align: center; flex: 1; }
-.title-block h1 { margin: 0; font-size: 2.4em; }
-.slogan { margin-top: 6px; font-size: 1em; opacity: 0.9; }
+.logo {
+    width: 90px;
+    background: white;
+    padding: 8px;
+    border-radius: 12px;
+}
 
-section { max-width: 700px; margin: 50px auto; padding: 30px; background: rgba(0,0,0,0.6); border-radius: 15px; }
-h2 { color: #66b3ff; margin-bottom: 20px; text-align: center; }
-form { display: flex; flex-direction: column; }
-label { margin-top: 15px; font-weight: bold; }
-input, textarea { margin-top: 5px; padding: 8px; border-radius: 6px; border: none; font-size: 1em; }
-textarea { resize: vertical; }
-.btn { margin-top: 20px; padding: 12px; background: #1E90FF; color: white; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; text-align: center; }
-.btn:hover { background: #0f4c81; }
-#btn-accueil { position: fixed; bottom: 20px; left: 20px; }
-#confirmation { margin-top: 15px; color: #90ee90; font-weight: bold; }
+.profile-pic {
+    width: 70px;
+    border-radius: 50%;
+    border: 2px solid white;
+}
+
+.title-block {
+    text-align: center;
+    flex: 1;
+}
+
+.title-block h1 {
+    margin: 0;
+    font-size: 2.4em;
+}
+
+.slogan {
+    margin-top: 6px;
+    font-size: 1em;
+    opacity: 0.9;
+}
+
+section {
+    max-width: 700px;
+    margin: 50px auto;
+    padding: 30px;
+    background: rgba(0,0,0,0.6);
+    border-radius: 15px;
+}
+
+h2 {
+    color: #66b3ff;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+input, textarea {
+    margin-top: 5px;
+    padding: 8px;
+    border-radius: 6px;
+    border: none;
+    font-size: 1em;
+}
+
+textarea {
+    resize: vertical;
+}
+
+.btn {
+    margin-top: 20px;
+    padding: 12px;
+    background: #1E90FF;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+}
+
+.btn:hover {
+    background: #0f4c81;
+}
+
+#confirmation {
+    margin-top: 15px;
+    color: #90ee90;
+    font-weight: bold;
+    text-align: center;
+}
+
+#btn-accueil {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+}
 </style>
 </head>
+
 <body>
 
 <header>
@@ -59,57 +138,70 @@ textarea { resize: vertical; }
 
 <section>
 <h2>Profil Mentor</h2>
-<p>Remplissez vos informations pour que votre profil apparaisse sur MeanSet Academy. Tous les champs sont facultatifs mais plus vous détaillez, plus votre profil sera visible et utile.</p>
+<p>
+Remplissez vos informations pour apparaître dans l’annuaire des mentors MeanSet Academy.
+Chaque profil est vérifié avant publication pour garantir la qualité du club.
+</p>
 
 <form id="mentorForm">
     <label>Nom et prénom</label>
-    <input type="text" name="nom" placeholder="Ex: Marie Dupont">
+    <input type="text" name="nom" required>
 
     <label>Spécialité / domaine</label>
-    <input type="text" name="specialite" placeholder="Ex: Marketing digital">
+    <input type="text" name="specialite" required>
 
-    <label>Compétences clés (savoir-faire / savoir-être)</label>
-    <textarea name="competences" rows="4" placeholder="Ex: Stratégie, Leadership, UX"></textarea>
+    <label>Compétences (savoir-faire & savoir-être)</label>
+    <textarea name="competences" rows="4" required></textarea>
 
-    <label>Photo de profil (URL ou fichier)</label>
-    <input type="text" name="photo" placeholder="Ex: page/mentor1.png">
+    <label>Photo (URL de votre image)</label>
+    <input type="text" name="photo" placeholder="Ex : page/mentor1.png">
 
     <label>Disponibilité virtuelle</label>
-    <input type="text" name="disponibiliteVirtuelle" placeholder="Ex: Lundi 14h-16h">
+    <input type="text" name="disponibiliteVirtuelle" placeholder="Ex : Lundi 14h–16h">
 
-    <label>Disponibilité atelier réel</label>
-    <input type="text" name="disponibiliteReel" placeholder="Ex: Vendredi 10h-12h">
+    <label>Disponibilité en présentiel</label>
+    <input type="text" name="disponibiliteReel" placeholder="Ex : Vendredi 10h–12h">
 
-    <label>Description / bio courte</label>
-    <textarea name="bio" rows="4" placeholder="Ex: Mentor expert en marketing digital..."></textarea>
+    <label>Bio courte</label>
+    <textarea name="bio" rows="4" required></textarea>
 
-    <button type="submit" class="btn">Envoyer</button>
+    <button type="submit" class="btn">Envoyer mon profil</button>
     <div id="confirmation"></div>
 </form>
 </section>
 
-<!-- Bouton retour accueil -->
 <a href="index.html" class="btn" id="btn-accueil">Retour à l'accueil</a>
 
 <script>
 document.getElementById('mentorForm').addEventListener('submit', function(e){
-    e.preventDefault(); // Empêche le reload
+    e.preventDefault();
+
     const formData = new FormData(this);
     const data = {};
-    formData.forEach((value, key) => { data[key] = value; });
+    formData.forEach((value, key) => data[key] = value);
 
-    // Ici tu pourras envoyer les données à ton serveur
-    console.log('Profil mentor envoyé (simulation) :', data);
+    // 👉 Colle ici l’URL de ton Google Apps Script
+    const scriptURL = "https://script.google.com/macros/s/XXXX/exec";
 
-    // Message confirmation
-    document.getElementById('confirmation').innerText = 
-        'Profil envoyé ! En attente de validation avant publication.';
-    
-    this.reset();
+    fetch(scriptURL, {
+        method: "POST",
+        body: JSON.stringify(data),
+        headers: { "Content-Type": "application/json" }
+    })
+    .then(response => response.json())
+    .then(result => {
+        document.getElementById("confirmation").innerText =
+          "Profil envoyé ! Il sera publié après validation par l’équipe MeanSet Academy.";
+        document.getElementById("mentorForm").reset();
+    })
+    .catch(error => {
+        document.getElementById("confirmation").innerText =
+          "Erreur lors de l’envoi. Veuillez réessayer.";
+        console.error(error);
+    });
 });
 </script>
 
 </body>
 </html>
-
 
