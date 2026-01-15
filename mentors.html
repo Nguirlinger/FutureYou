@@ -166,16 +166,33 @@ footer {
 <h2>Nos Mentors</h2>
 <p>Découvrez nos mentors experts. Vous pouvez les rencontrer <strong>en ligne</strong> via notre plateforme immersive, ou <strong>en présentiel</strong> lors de nos ateliers. Chaque mentor vous guide sur vos projets, partage ses compétences et accompagne votre progression.</p>
 
-<div class="mentor-grid">
-    <!-- Mentor 1 -->
-    <div class="mentor-card">
-        <img src="page/mentor1.png" alt="Mentor 1">
-        <h3>Marie Dupont</h3>
-        <p>Marketing digital & stratégie de croissance</p>
-        <a href="profil.html" class="btn">Voir profil</a>
-        <a href="#" class="btn">Session virtuelle</a>
-        <a href="#" class="btn">Atelier réel</a>
-    </div>
+<div class="mentor-grid" id="mentorGrid"></div>
+
+<script>
+fetch("mentors.json")
+.then(response => response.json())
+.then(data => {
+    const grid = document.getElementById("mentorGrid");
+
+    data.mentors.forEach(mentor => {
+        const card = document.createElement("div");
+        card.className = "mentor-card";
+
+        card.innerHTML = `
+            <img src="${mentor.photo || 'page/mentor-default.png'}">
+            <h3>${mentor.nom}</h3>
+            <p>${mentor.specialite}</p>
+            <p>${mentor.bio}</p>
+            <a class="btn" href="profil.html">Voir profil</a>
+            <a class="btn" href="#">Session virtuelle</a>
+            <a class="btn" href="#">Atelier réel</a>
+        `;
+
+        grid.appendChild(card);
+    });
+});
+</script>
+
 
     <!-- Mentor 2 -->
     <div class="mentor-card">
