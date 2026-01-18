@@ -1,210 +1,171 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MeanSet Academy - Mentors</title>
+  <meta charset="UTF-8">
+  <title>Mentors | MeanSet Academy</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<style>
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background: url('page/page.png') no-repeat center center fixed;
-    background-size: cover;
-    color: white;
-}
-
-/* Header */
-header {
-    background: linear-gradient(90deg, #0f4c81, #1E90FF);
-    padding: 20px 30px;
-}
-
-.header-content {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.logo {
-    width: 90px;
-    background: white;
-    padding: 8px;
-    border-radius: 12px;
-}
-
-.profile-pic {
-    width: 70px;
-    border-radius: 50%;
-    border: 2px solid white;
-}
-
-.title-block {
-    text-align: center;
-    flex: 1;
-}
-
-.title-block h1 {
-    margin: 0;
-    font-size: 2.4em;
-}
-
-.slogan {
-    margin-top: 6px;
-    font-size: 1em;
-    opacity: 0.9;
-}
-
-/* Sections */
-section {
-    max-width: 1000px;
-    margin: 40px auto;
-    padding: 30px;
-    background: rgba(0,0,0,0.6);
-    border-radius: 15px;
-}
-
-h2 {
-    color: #66b3ff;
-    margin-bottom: 20px;
-}
-
-/* Mentor grid */
-.mentor-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-}
-
-.mentor-card {
-    background: rgba(255,255,255,0.1);
-    padding: 15px;
-    border-radius: 12px;
-    text-align: center;
-    transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.mentor-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 15px rgba(0,0,0,0.4);
-}
-
-.mentor-card img {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    border: 2px solid #66b3ff;
-    margin-bottom: 10px;
-}
-
-.mentor-card h3 {
-    margin: 8px 0 5px;
-}
-
-.mentor-card p {
-    font-size: 0.95em;
-}
-
-.mentor-card .btn {
-    margin: 6px 5px 0 5px;
-    display: inline-block;
-}
-
-/* Buttons */
-.btn {
-    display: inline-block;
-    background: #1E90FF;
-    color: white;
-    padding: 10px 18px;
-    border-radius: 8px;
-    margin-top: 6px;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 0.9em;
-}
-
-.btn:hover {
-    background: #0f4c81;
-}
-
-/* Footer */
-footer {
-    text-align: center;
-    padding: 20px;
-    background: rgba(0,0,0,0.7);
-    margin-top: 40px;
-}
-
-@media (max-width: 600px){
-    .title-block h1 {
-        font-size: 1.8em;
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f5f6fa;
     }
 
-    .mentor-card img {
-        width: 100px;
-        height: 100px;
+    header {
+      background: linear-gradient(90deg, #1E90FF, #187bcd);
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
     }
-}
-</style>
+
+    header h1 {
+      margin: 0;
+      font-size: 2.4em;
+    }
+
+    main {
+      max-width: 1100px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    .mentors-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 25px;
+    }
+
+    .mentor-card {
+      background: white;
+      color: #333;
+      padding: 25px;
+      border-radius: 16px;
+      text-align: center;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.12);
+    }
+
+    .mentor-photo {
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 50%;
+      margin-bottom: 15px;
+      border: 3px solid #1E90FF;
+    }
+
+    .mentor-card h3 {
+      margin: 10px 0 5px;
+    }
+
+    .specialite {
+      font-weight: bold;
+      color: #1E90FF;
+      margin-bottom: 10px;
+    }
+
+    .bio {
+      font-size: 0.95em;
+      margin-bottom: 15px;
+    }
+
+    .badges {
+      margin-bottom: 15px;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 0.8em;
+      margin: 4px;
+      color: white;
+    }
+
+    .badge.virtuel {
+      background-color: #1E90FF;
+    }
+
+    .badge.reel {
+      background-color: #2ecc71;
+    }
+
+    .btn-retour {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 12px 25px;
+      background-color: #1E90FF;
+      color: white;
+      text-decoration: none;
+      border-radius: 10px;
+      font-weight: bold;
+    }
+
+    .btn-retour:hover {
+      background-color: #187bcd;
+    }
+  </style>
 </head>
 
 <body>
 
 <header>
-    <div class="header-content">
-        <img src="logo.png" class="logo" alt="MeanSet Academy">
-        <div class="title-block">
-            <h1>MeanSet Academy</h1>
-            <p class="slogan">Club virtuel & réel — Mentors, savoir-faire et savoir-être</p>
-        </div>
-        <img src="moi.png" class="profile-pic" alt="Fondateur">
-    </div>
+  <h1>Nos Mentors</h1>
+  <p>Un réseau de mentors humains – virtuel & réel</p>
 </header>
 
-<section>
-<h2>Nos Mentors</h2>
-<p>Découvrez nos mentors experts. Vous pouvez les rencontrer <strong>en ligne</strong> via notre plateforme immersive, ou <strong>en présentiel</strong> lors de nos ateliers. Chaque mentor vous guide sur vos projets, partage ses compétences et accompagne votre progression.</p>
+<main>
 
-<div class="mentor-grid" id="mentorGrid"></div>
+  <div id="mentors" class="mentors-grid">
+    <!-- Les mentors validés apparaîtront ici -->
+  </div>
+
+  <div style="text-align:center;">
+    <a href="index.html" class="btn-retour">← Retour à l’accueil</a>
+  </div>
+
+</main>
 
 <script>
 fetch("mentors.json")
-.then(response => response.json())
-.then(data => {
-    const grid = document.getElementById("mentorGrid");
+  .then(response => response.json())
+  .then(data => {
+    const container = document.getElementById("mentors");
 
-    data.mentors.forEach(mentor => {
-        const card = document.createElement("div");
-        card.className = "mentor-card";
+    data.forEach(mentor => {
+      if (!mentor.valide) return;
 
-        card.innerHTML = `
-            <img src="${mentor.photo || 'page/mentor-default.png'}">
-            <h3>${mentor.nom}</h3>
-            <p>${mentor.specialite}</p>
-            <p>${mentor.bio}</p>
-            <a class="btn" href="profil.html">Voir profil</a>
-            <a class="btn" href="#">Session virtuelle</a>
-            <a class="btn" href="#">Atelier réel</a>
-        `;
+      const card = document.createElement("div");
+      card.className = "mentor-card";
 
-        grid.appendChild(card);
+      const photo = mentor.photo && mentor.photo !== ""
+        ? mentor.photo
+        : "avatar.png";
+
+      let badges = "";
+      if (mentor.disponibiliteVirtuelle === "Oui") {
+        badges += '<span class="badge virtuel">Virtuel</span>';
+      }
+      if (mentor.disponibiliteReel === "Oui") {
+        badges += '<span class="badge reel">Réel</span>';
+      }
+
+      card.innerHTML = `
+        <img src="${photo}" class="mentor-photo" alt="Photo mentor">
+        <h3>${mentor.nom}</h3>
+        <div class="specialite">${mentor.specialite}</div>
+        <div class="bio">${mentor.bio}</div>
+        <div class="badges">${badges}</div>
+      `;
+
+      container.appendChild(card);
     });
-});
+  })
+  .catch(error => {
+    console.error("Erreur chargement mentors :", error);
+  });
 </script>
-
-</section>
-
-<footer>
-© 2026 MeanSet Academy — Tous droits réservés
-</footer>
-
-<!-- Bouton retour accueil en bas à gauche -->
-<a href="index.html" class="btn" style="position: fixed; bottom: 20px; left: 20px;">Retour à l'accueil</a>
 
 </body>
 </html>
-
-
-
-
