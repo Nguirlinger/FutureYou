@@ -1,148 +1,112 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <title>Mentors | MeanSet Academy</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mentors | MeanSet Academy</title>
+<style>
+  /* Corps et fond */
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: url("page/page.png") no-repeat center center fixed;
+    background-size: cover;
+    color: #333;
+  }
 
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background: url("page/page.png") no-repeat center center fixed;
-      background-size: cover;
-      color: #333;
-    }
+  /* HEADER identique à index */
+  header {
+    background: linear-gradient(90deg, #1E90FF, #187bcd);
+    color: white;
+    padding: 50px 20px;
+    text-align: center;
+  }
+  header h1 { margin: 0; font-size: 2.6em; }
+  header p { margin-top: 12px; font-size: 1.1em; font-weight: 400; }
 
-    /* HEADER IDENTIQUE INDEX */
-    header {
-      background: linear-gradient(90deg, #1E90FF, #187bcd);
-      color: white;
-      padding: 50px 20px;
-      text-align: center;
-    }
+  /* MAIN GRID */
+  main {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 0 20px;
+  }
 
-    header h1 {
-      margin: 0;
-      font-size: 2.6em;
-    }
+  .mentors-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 25px;
+  }
 
-    header p {
-      margin-top: 10px;
-      font-size: 1.2em;
-    }
+  /* CARTE MENTOR */
+  .mentor-card {
+    background: rgba(30,144,255,0.85); /* bleu cartes index */
+    color: white;
+    padding: 25px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+    transition: transform 0.3s;
+  }
+  .mentor-card:hover { transform: translateY(-5px); }
 
-    /* SECTION (COMME INDEX) */
-    main {
-  max-width: 1100px;
-  margin: 40px auto;
-  padding: 0;
-  background: none;
-    }
+  .mentor-photo {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #A9D6FF;
+    margin-bottom: 15px;
+  }
 
-    /* GRID MENTORS */
-    .mentors-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 25px;
-    }
+  .mentor-card h3 { color: #fff; margin-bottom: 5px; }
+  .specialite { color: #eaf4ff; font-weight: bold; margin-bottom: 10px; }
+  .bio { font-size: 0.95em; margin-bottom: 15px; }
 
-    /* CARTE MENTOR — IDENTIQUE STYLE INDEX */
-    .mentor-card {
-  background: rgba(15, 76, 117, 0.85);
-  color: white;
-  padding: 25px;
-  border-radius: 18px;
-  text-align: center;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-    }
+  /* BADGES */
+  .badge {
+    display: inline-block;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.8em;
+    margin: 3px;
+    color: white;
+  }
+  .badge.virtuel { background-color: #1E90FF; }
+  .badge.reel { background-color: #2ecc71; }
 
-    .mentor-card:hover {
-      transform: translateY(-5px);
-    }
+  /* BOUTONS */
+  .mentor-actions a,
+  .btn-retour {
+    display: inline-block;
+    padding: 12px 25px;
+    margin: 8px 5px 0;
+    background-color: #1E90FF;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: background 0.3s;
+  }
+  .mentor-actions a:hover,
+  .btn-retour:hover { background-color: #187bcd; }
 
-    /* PHOTO RONDE FIXE */
-    .mentor-photo {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 4px solid #A9D6FF;
-    }
-
-   .mentor-card h3 {
-  color: #ffffff;
-}
-
-.specialite {
-  color: #A9D6FF;
-    }
-
-    .bio {
-      font-size: 1em;
-      margin-bottom: 15px;
-    }
-
-    /* BADGES */
-    .badge {
-      display: inline-block;
-      padding: 6px 14px;
-      border-radius: 20px;
-      font-size: 0.8em;
-      margin: 3px;
-      color: white;
-    }
-
-    .badge.virtuel {
-      background-color: #1E90FF;
-    }
-
-    .badge.reel {
-      background-color: #2ecc71;
-    }
-
-    /* BOUTONS IDENTIQUES INDEX */
-    .mentor-actions a,
-    .btn-retour {
-      display: inline-block;
-      padding: 12px 25px;
-      margin: 10px 5px 0;
-      background-color: #1E90FF;
-      color: white;
-      text-decoration: none;
-      border-radius: 8px;
-      font-weight: bold;
-      transition: background 0.3s;
-    }
-
-    .mentor-actions a:hover,
-    .btn-retour {
-  background: linear-gradient(135deg, #0A2A43, #0F4C75);
-    }
-
-    .retour {
-      text-align: center;
-      margin-top: 30px;
-    }
-  </style>
+  .retour { text-align: center; margin-top: 30px; }
+</style>
 </head>
-
 <body>
 
 <header>
   <h1>Nos Mentors</h1>
-  <p>Un réseau humain – virtuel & réel</p>
+  <p>Un mentor est là pour t’orienter dans tes démarches et tes projets.</p>
 </header>
 
 <main>
-
   <div id="mentors" class="mentors-grid"></div>
 
   <div class="retour">
     <a href="index.html" class="btn-retour">← Retour à l’accueil</a>
   </div>
-
 </main>
 
 <script>
@@ -159,12 +123,8 @@ fetch("mentors.json")
         : "avatar.png";
 
       let badges = "";
-      if (mentor.disponibiliteVirtuelle === "Oui") {
-        badges += '<span class="badge virtuel">Virtuel</span>';
-      }
-      if (mentor.disponibiliteReel === "Oui") {
-        badges += '<span class="badge reel">Réel</span>';
-      }
+      if (mentor.disponibiliteVirtuelle === "Oui") badges += '<span class="badge virtuel">Virtuel</span>';
+      if (mentor.disponibiliteReel === "Oui") badges += '<span class="badge reel">Réel</span>';
 
       const card = document.createElement("div");
       card.className = "mentor-card";
@@ -175,11 +135,10 @@ fetch("mentors.json")
         <div class="bio">${mentor.bio}</div>
         <div>${badges}</div>
         <div class="mentor-actions">
-          <a href="profil.html">Voir le profil</a>
+          <a href="profil-mentor.html?nom=${encodeURIComponent(mentor.nom)}">Voir le profil</a>
           <a href="mailto:contact@meansetacademy.com">Prendre RDV</a>
         </div>
       `;
-
       container.appendChild(card);
     });
   });
@@ -187,5 +146,3 @@ fetch("mentors.json")
 
 </body>
 </html>
-
-
