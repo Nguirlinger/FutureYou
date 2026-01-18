@@ -12,8 +12,10 @@
       padding: 0;
       background: url("page/page.png") no-repeat center center fixed;
       background-size: cover;
+      color: #333;
     }
 
+    /* HEADER IDENTIQUE INDEX */
     header {
       background: linear-gradient(90deg, #1E90FF, #187bcd);
       color: white;
@@ -21,35 +23,48 @@
       text-align: center;
     }
 
-    main {
-      max-width: 1100px;
-      margin: 40px auto;
-      padding: 0 20px;
+    header h1 {
+      margin: 0;
+      font-size: 2.6em;
     }
 
+    header p {
+      margin-top: 10px;
+      font-size: 1.2em;
+    }
+
+    /* SECTION (COMME INDEX) */
+    main {
+      max-width: 1100px;
+      margin: 30px auto;
+      background-color: white;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    /* GRID MENTORS */
     .mentors-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 25px;
     }
 
+    /* CARTE MENTOR — IDENTIQUE STYLE INDEX */
     .mentor-card {
-      background: rgba(255,255,255,0.95);
-      color: #333;
-      padding: 30px;
+      background-color: #f5f6fa;
+      padding: 25px;
       border-radius: 15px;
       text-align: center;
       box-shadow: 0 4px 10px rgba(0,0,0,0.1);
       transition: transform 0.3s;
-}
-
-.mentor-card h3 {
-  color: #1E90FF;
-  margin-bottom: 5px;
-}
-
     }
 
+    .mentor-card:hover {
+      transform: translateY(-5px);
+    }
+
+    /* PHOTO RONDE FIXE */
     .mentor-photo {
       width: 120px;
       height: 120px;
@@ -59,26 +74,29 @@
       border: 3px solid #1E90FF;
     }
 
-   .specialite {
-  font-weight: bold;
-  color: #187bcd;
-}
-
-  .bio {
-  font-size: 1em;
-  color: #333;
+    .mentor-card h3 {
+      margin-bottom: 5px;
+      color: #1E90FF;
     }
 
-    .badges {
+    .specialite {
+      font-weight: bold;
+      color: #187bcd;
+      margin-bottom: 10px;
+    }
+
+    .bio {
+      font-size: 1em;
       margin-bottom: 15px;
     }
 
+    /* BADGES */
     .badge {
       display: inline-block;
       padding: 6px 14px;
       border-radius: 20px;
       font-size: 0.8em;
-      margin: 4px;
+      margin: 3px;
       color: white;
     }
 
@@ -90,36 +108,28 @@
       background-color: #2ecc71;
     }
 
-    .mentor-actions a {
-  display: inline-block;
-  padding: 12px 25px;
-  margin: 8px 5px 0;
-  background-color: #1E90FF;
-  color: white;
-  text-decoration: none;
-  border-radius: 8px;
-  font-weight: bold;
-  transition: background 0.3s;
-}
-
-.mentor-actions a:hover {
-  background-color: #187bcd;
-}
-
+    /* BOUTONS IDENTIQUES INDEX */
+    .mentor-actions a,
+    .btn-retour {
+      display: inline-block;
+      padding: 12px 25px;
+      margin: 10px 5px 0;
+      background-color: #1E90FF;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: background 0.3s;
     }
 
-   .btn-retour {
-  display: inline-block;
-  padding: 12px 25px;
-  background-color: #1E90FF;
-  color: white;
-  text-decoration: none;
-  border-radius: 8px;
-  font-weight: bold;
-}
+    .mentor-actions a:hover,
+    .btn-retour:hover {
+      background-color: #187bcd;
+    }
 
-.btn-retour:hover {
-  background-color: #187bcd;
+    .retour {
+      text-align: center;
+      margin-top: 30px;
     }
   </style>
 </head>
@@ -128,14 +138,14 @@
 
 <header>
   <h1>Nos Mentors</h1>
-  <p>Humains · Virtuel & Réel</p>
+  <p>Un réseau humain – virtuel & réel</p>
 </header>
 
 <main>
 
   <div id="mentors" class="mentors-grid"></div>
 
-  <div style="text-align:center;">
+  <div class="retour">
     <a href="index.html" class="btn-retour">← Retour à l’accueil</a>
   </div>
 
@@ -169,7 +179,7 @@ fetch("mentors.json")
         <h3>${mentor.nom}</h3>
         <div class="specialite">${mentor.specialite}</div>
         <div class="bio">${mentor.bio}</div>
-        <div class="badges">${badges}</div>
+        <div>${badges}</div>
         <div class="mentor-actions">
           <a href="profil.html">Voir le profil</a>
           <a href="mailto:contact@meansetacademy.com">Prendre RDV</a>
@@ -184,5 +194,4 @@ fetch("mentors.json")
 </body>
 </html>
 
-   
 
