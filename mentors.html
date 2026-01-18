@@ -10,19 +10,15 @@
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
-      background: #f5f6fa;
+      background: url("page/page.png") no-repeat center center fixed;
+      background-size: cover;
     }
 
     header {
-      background: linear-gradient(90deg, #1E90FF, #187bcd);
+      background: rgba(30,144,255,0.9);
       color: white;
       padding: 40px 20px;
       text-align: center;
-    }
-
-    header h1 {
-      margin: 0;
-      font-size: 2.4em;
     }
 
     main {
@@ -38,12 +34,12 @@
     }
 
     .mentor-card {
-      background: white;
+      background: rgba(255,255,255,0.95);
       color: #333;
       padding: 25px;
       border-radius: 16px;
       text-align: center;
-      box-shadow: 0 6px 15px rgba(0,0,0,0.12);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.15);
     }
 
     .mentor-photo {
@@ -53,10 +49,6 @@
       border-radius: 50%;
       margin-bottom: 15px;
       border: 3px solid #1E90FF;
-    }
-
-    .mentor-card h3 {
-      margin: 10px 0 5px;
     }
 
     .specialite {
@@ -91,19 +83,30 @@
       background-color: #2ecc71;
     }
 
+    .mentor-actions a {
+      display: inline-block;
+      margin: 5px;
+      padding: 8px 14px;
+      background-color: #1E90FF;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-size: 0.85em;
+    }
+
+    .mentor-actions a:hover {
+      background-color: #187bcd;
+    }
+
     .btn-retour {
       display: inline-block;
-      margin-top: 30px;
+      margin-top: 40px;
       padding: 12px 25px;
       background-color: #1E90FF;
       color: white;
       text-decoration: none;
       border-radius: 10px;
       font-weight: bold;
-    }
-
-    .btn-retour:hover {
-      background-color: #187bcd;
     }
   </style>
 </head>
@@ -112,14 +115,12 @@
 
 <header>
   <h1>Nos Mentors</h1>
-  <p>Un réseau de mentors humains – virtuel & réel</p>
+  <p>Humains · Virtuel & Réel</p>
 </header>
 
 <main>
 
-  <div id="mentors" class="mentors-grid">
-    <!-- Les mentors validés apparaîtront ici -->
-  </div>
+  <div id="mentors" class="mentors-grid"></div>
 
   <div style="text-align:center;">
     <a href="index.html" class="btn-retour">← Retour à l’accueil</a>
@@ -136,9 +137,6 @@ fetch("mentors.json")
     data.forEach(mentor => {
       if (!mentor.valide) return;
 
-      const card = document.createElement("div");
-      card.className = "mentor-card";
-
       const photo = mentor.photo && mentor.photo !== ""
         ? mentor.photo
         : "avatar.png";
@@ -151,21 +149,27 @@ fetch("mentors.json")
         badges += '<span class="badge reel">Réel</span>';
       }
 
+      const card = document.createElement("div");
+      card.className = "mentor-card";
       card.innerHTML = `
-        <img src="${photo}" class="mentor-photo" alt="Photo mentor">
+        <img src="${photo}" class="mentor-photo">
         <h3>${mentor.nom}</h3>
         <div class="specialite">${mentor.specialite}</div>
         <div class="bio">${mentor.bio}</div>
         <div class="badges">${badges}</div>
+        <div class="mentor-actions">
+          <a href="profil.html">Voir le profil</a>
+          <a href="mailto:contact@meansetacademy.com">Prendre RDV</a>
+        </div>
       `;
 
       container.appendChild(card);
     });
-  })
-  .catch(error => {
-    console.error("Erreur chargement mentors :", error);
   });
 </script>
 
 </body>
 </html>
+
+   
+
