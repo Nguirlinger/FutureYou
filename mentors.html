@@ -15,9 +15,9 @@
     }
 
     header {
-      background: rgba(30,144,255,0.9);
+      background: linear-gradient(90deg, #1E90FF, #187bcd);
       color: white;
-      padding: 40px 20px;
+      padding: 50px 20px;
       text-align: center;
     }
 
@@ -34,12 +34,20 @@
     }
 
     .mentor-card {
-      background: rgba(30, 144, 255, 0.85); /* bleu MeanSet */
-      color: white;
-      padding: 25px;
-      border-radius: 16px;
+      background: rgba(255,255,255,0.95);
+      color: #333;
+      padding: 30px;
+      border-radius: 15px;
       text-align: center;
-      box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+}
+
+.mentor-card h3 {
+  color: #1E90FF;
+  margin-bottom: 5px;
+}
+
     }
 
     .mentor-photo {
@@ -52,13 +60,13 @@
     }
 
    .specialite {
-    font-weight: bold;
-    color: #eaf4ff;
+  font-weight: bold;
+  color: #187bcd;
 }
 
   .bio {
-    font-size: 0.95em;
-    color: #f0f8ff;
+  font-size: 1em;
+  color: #333;
     }
 
     .badges {
@@ -83,29 +91,35 @@
     }
 
     .mentor-actions a {
-      display: inline-block;
-      margin: 5px;
-      padding: 8px 14px;
-      background-color: #1E90FF;
-      color: white;
-      text-decoration: none;
-      border-radius: 8px;
-      font-size: 0.85em;
+  display: inline-block;
+  padding: 12px 25px;
+  margin: 8px 5px 0;
+  background-color: #1E90FF;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.mentor-actions a:hover {
+  background-color: #187bcd;
+}
+
     }
 
-    .mentor-actions a:hover {
-      background-color: #187bcd;
-    }
+   .btn-retour {
+  display: inline-block;
+  padding: 12px 25px;
+  background-color: #1E90FF;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
+}
 
-    .btn-retour {
-      display: inline-block;
-      margin-top: 40px;
-      padding: 12px 25px;
-      background-color: #1E90FF;
-      color: white;
-      text-decoration: none;
-      border-radius: 10px;
-      font-weight: bold;
+.btn-retour:hover {
+  background-color: #187bcd;
     }
   </style>
 </head>
