@@ -1,1 +1,53 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mes Disponibilités | MeanSet Academy</title>
+<style>
+body { font-family: Arial; padding: 20px; background: #f0f4f8; color: #333; }
+h1 { text-align: center; color: #4a90e2; }
+form { max-width: 600px; margin: 20px auto; background: white; padding: 20px; border-radius: 10px; }
+label { display: block; margin-top: 15px; font-weight: bold; }
+input[type="checkbox"] { margin-right: 5px; }
+button { margin-top: 20px; padding: 10px 20px; background: #357ABD; color: white; border: none; border-radius: 6px; cursor: pointer; }
+button:hover { background: #2d5d8b; }
+</style>
+</head>
+<body>
+
+<h1>Remplir mon planning</h1>
+
+<form id="formDisponibilites">
+  <label>Nom du mentor</label>
+  <input type="text" name="nom" required>
+
+  <label>Disponibilités</label>
+  <div id="checkboxes">
+    <div>Lundi : <input type="checkbox" name="Lundi" value="10:00">10h <input type="checkbox" name="Lundi" value="14:00">14h</div>
+    <div>Mardi : <input type="checkbox" name="Mardi" value="09:00">09h <input type="checkbox" name="Mardi" value="11:00">11h</div>
+    <div>Mercredi : <input type="checkbox" name="Mercredi" value="10:00">10h <input type="checkbox" name="Mercredi" value="14:00">14h</div>
+    <div>Jeudi : <input type="checkbox" name="Jeudi" value="13:00">13h <input type="checkbox" name="Jeudi" value="16:00">16h</div>
+    <div>Vendredi : <input type="checkbox" name="Vendredi" value="10:00">10h <input type="checkbox" name="Vendredi" value="12:00">12h</div>
+  </div>
+
+  <button type="submit">Enregistrer pour validation</button>
+</form>
+
+<script>
+document.getElementById("formDisponibilites").addEventListener("submit", function(e){
+  e.preventDefault();
+  const nom = this.nom.value;
+  const disponibilites = {};
+  ["Lundi","Mardi","Mercredi","Jeudi","Vendredi"].forEach(day => {
+    disponibilites[day] = Array.from(document.querySelectorAll(`input[name="${day}"]:checked`)).map(cb => cb.value);
+  });
+  const mentorData = { nom, disponibilites };
+  alert("Votre planning a été enregistré pour validation !\n\n" + JSON.stringify(mentorData, null, 2));
+  this.reset();
+});
+</script>
+
+</body>
+</html>
 
