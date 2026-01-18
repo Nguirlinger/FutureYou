@@ -12,40 +12,63 @@
     padding: 0;
     background: url("page/page.png") no-repeat center center fixed;
     background-size: cover;
-    color: #333;
+    color: #fff;
   }
 
-  /* HEADER identique à index */
-     background: linear-gradient(90deg, #0f4c81, #1E90FF);
-    padding: 20px 30px;
+  /* HEADER identique index */
+  header {
+    background: linear-gradient(90deg, #4a90e2, #357ABD); /* bleu exact index */
+    color: white;
+    padding: 50px 20px;
+    text-align: center;
   }
   header h1 { margin: 0; font-size: 2.6em; }
   header p { margin-top: 12px; font-size: 1.1em; font-weight: 400; }
 
-  /* MAIN GRID */
+  /* BOUTON POUR POSTULER */
+  .btn-postuler {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 12px 25px;
+    background-color: #2ecc71; /* vert distinct */
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: background 0.3s;
+  }
+  .btn-postuler:hover { background-color: #27ae60; }
+
+  /* MAIN */
   main {
     max-width: 1100px;
     margin: 40px auto;
     padding: 0 20px;
   }
 
+  /* GRID DES CARTES */
   .mentors-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 25px;
+    justify-items: center; /* centre les cartes */
   }
 
   /* CARTE MENTOR */
   .mentor-card {
-    section {
-    max-width: 900px;
-    margin: 40px auto;
-    padding: 30px;
-    background: rgba(0,0,0,0.6);
+    background: rgba(74,144,226,0.85); /* bleu index transparent */
+    color: white;
+    padding: 25px;
     border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+    transition: transform 0.3s;
+    width: 100%;
+    max-width: 300px;
   }
   .mentor-card:hover { transform: translateY(-5px); }
 
+  /* PHOTO RONDE */
   .mentor-photo {
     width: 120px;
     height: 120px;
@@ -71,7 +94,7 @@
   .badge.virtuel { background-color: #1E90FF; }
   .badge.reel { background-color: #2ecc71; }
 
-  /* BOUTONS */
+  /* BOUTONS DANS CARTES ET RETOUR */
   .mentor-actions a,
   .btn-retour {
     display: inline-block;
@@ -85,9 +108,18 @@
     transition: background 0.3s;
   }
   .mentor-actions a:hover,
-  .btn-retour:hover { background-color: #187bcd; }
+  .btn-retour:hover { background-color: #357ABD; }
 
-  .retour { text-align: center; margin-top: 30px; }
+  /* BOUTON RETOUR aligné à gauche */
+  .retour {
+    text-align: left;
+    margin-top: 30px;
+  }
+
+  @media (max-width: 600px) {
+    .mentor-card { max-width: 100%; }
+    .mentors-grid { grid-template-columns: 1fr; }
+  }
 </style>
 </head>
 <body>
@@ -95,6 +127,7 @@
 <header>
   <h1>Nos Mentors</h1>
   <p>Un mentor est là pour t’orienter dans tes démarches et tes projets.</p>
+  <a href="profil.html" class="btn-postuler">Devenir Mentor</a>
 </header>
 
 <main>
@@ -114,9 +147,7 @@ fetch("mentors.json")
     data.forEach(mentor => {
       if (!mentor.valide) return;
 
-      const photo = mentor.photo && mentor.photo !== ""
-        ? mentor.photo
-        : "avatar.png";
+      const photo = mentor.photo && mentor.photo !== "" ? mentor.photo : "avatar.png";
 
       let badges = "";
       if (mentor.disponibiliteVirtuelle === "Oui") badges += '<span class="badge virtuel">Virtuel</span>';
@@ -142,3 +173,4 @@ fetch("mentors.json")
 
 </body>
 </html>
+
