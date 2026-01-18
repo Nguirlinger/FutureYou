@@ -25,18 +25,22 @@
   header p { margin-top: 12px; font-size: 1.1em; font-weight: 400; }
 
   /* BOUTON POUR POSTULER */
-  .btn-postuler {
-    display: inline-block;
-    margin-top: 15px;
-    padding: 12px 25px;
-    background-color: #2ecc71; /* vert distinct */
-    color: white;
-    text-decoration: none;
-    border-radius: 8px;
-    font-weight: bold;
-    transition: background 0.3s;
-  }
-  .btn-postuler:hover { background-color: #27ae60; }
+ /* Bouton Devenir Mentor gris */
+.btn-postuler {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 12px 25px;
+  background-color: #7f8c8d; /* gris sobre */
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+.btn-postuler:hover {
+  background-color: #606b6f; /* gris plus foncé au hover */
+}
+
 
   /* MAIN */
   main {
@@ -125,9 +129,15 @@
 
 <header>
   <h1>Nos Mentors</h1>
-  <p>Un mentor est là pour t’orienter dans tes démarches et tes projets.</p>
+  <p>
+    Un mentor est là pour t’orienter dans tes démarches et tes projets. 
+    Il peut s’agir d’un étudiant qualifié dans un domaine ou d’un chef d’entreprise expérimenté. 
+    Son rôle est de t’accompagner dans tes projets, de partager son savoir-faire et son savoir-être, 
+    et, si nécessaire, de te guider vers des formations plus avancées et complètes pour développer tes compétences.
+  </p>
   <a href="profil.html" class="btn-postuler">Devenir Mentor</a>
 </header>
+
 
 <main>
   <div id="mentors" class="mentors-grid"></div>
