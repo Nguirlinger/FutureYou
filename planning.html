@@ -3,92 +3,119 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Planning Mentors | MeanSet Academy</title>
+<title>Planning Mentors - MeanSet Academy</title>
 <style>
-body { font-family: Arial; padding: 20px; background: #f0f4f8; color: #333; }
-h1 { text-align: center; color: #4a90e2; }
-table { border-collapse: collapse; width: 100%; max-width: 900px; margin: 20px auto; }
-th, td { border: 1px solid #ccc; padding: 10px; text-align: center; }
-th { background-color: #4a90e2; color: white; }
-td.available { background-color: #2ecc71; color: white; cursor: pointer; }
-td.booked { background-color: #e74c3c; color: white; }
-td:hover.available { background-color: #27ae60; }
-.retour { text-align: left; margin: 20px auto; max-width: 900px; }
-.btn-retour { padding: 10px 20px; background: #357ABD; color: white; text-decoration: none; border-radius: 6px; }
-.btn-retour:hover { background: #2d5d8b; }
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background: url('Fond de page.png') no-repeat center center fixed;
+        background-size: cover;
+        color: #fff;
+        line-height: 1.6;
+    }
+    header {
+        background: linear-gradient(90deg, #1E90FF, #187bcd);
+        color: white;
+        padding: 30px 20px;
+        text-align: center;
+        position: relative;
+    }
+    header h1 {
+        margin: 0;
+    }
+    header img.logo {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        width: 80px;
+        border-radius: 10px;
+    }
+    section {
+        max-width: 900px;
+        margin: 30px auto;
+        background-color: rgba(30,144,255,0.85);
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+    h2 {
+        color: #fff;
+        margin-bottom: 10px;
+    }
+    ul {
+        list-style: none;
+        padding: 0;
+    }
+    li {
+        margin-bottom: 10px;
+        background-color: rgba(255,255,255,0.1);
+        padding: 10px;
+        border-radius: 8px;
+    }
+    .btn {
+        display: inline-block;
+        padding: 12px 25px;
+        margin: 10px 10px 0 0;
+        background-color: #1E90FF;
+        color: white;
+        text-decoration: none;
+        border-radius: 8px;
+        font-weight: bold;
+        transition: background 0.3s;
+    }
+    .btn:hover {
+        background-color: #187bcd;
+    }
+    footer {
+        text-align: center;
+        padding: 20px;
+        background-color: #333;
+        color: white;
+        margin-top: 30px;
+    }
 </style>
 </head>
 <body>
+<header>
+    <img src="logo.png" alt="MeanSet Academy" class="logo">
+    <h1>Planning des Mentors</h1>
+</header>
 
-<h1>Planning des Mentors</h1>
+<section>
+    <h2>Disponibilités</h2>
+    <ul id="planning-list">
+        <!-- Les créneaux seront ajoutés ici par JS -->
+    </ul>
+    <a href="index.html" class="btn">Retour à l'accueil</a>
+</section>
 
-<div id="planning"></div>
-
-<div class="retour">
-  <a href="index.html" class="btn-retour">← Retour à l’accueil</a>
-</div>
+<footer>
+    &copy; 2026 MeanSet Academy. Tous droits réservés.
+</footer>
 
 <script>
-fetch("disponibilites.json")
-.then(res => res.json())
+// Récupérer les disponibilités depuis le fichier JSON
+fetch('disponibilites.json')
+.then(response => response.json())
 .then(data => {
-    const container = document.getElementById("planning");
-
-    data.forEach(mentor => {
-        const table = document.createElement("table");
-        const caption = document.createElement("caption");
-        caption.innerText = mentor.nom;
-        caption.style.fontWeight = "bold";
-        caption.style.fontSize = "1.2em";
-        table.appendChild(caption);
-
-        const days = ["Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi"];
-        const allHours = [...new Set([].concat(...Object.values(mentor.disponibilites)))];
-
-        const thead = document.createElement("thead");
-        const trHead = document.createElement("tr");
-        trHead.appendChild(document.createElement("th"));
-        days.forEach(day => {
-            const th = document.createElement("th");
-            th.innerText = day;
-            trHead.appendChild(th);
+    const list = document.getElementById('planning-list');
+    if(data.length === 0){
+        list.innerHTML = "<li>Aucune disponibilité pour le moment</li>";
+    } else {
+        data.forEach(mentor => {
+            const li = document.createElement('li');
+            li.innerHTML = `<strong>${mentor.nom}</strong> - ${mentor.specialite}<br>
+                            Créneaux disponibles: ${mentor.disponibiliteReel || 'Aucun'}<br>
+                            Virtuel: ${mentor.disponibiliteVirtuelle || 'Aucun'}`;
+            list.appendChild(li);
         });
-        thead.appendChild(trHead);
-        table.appendChild(thead);
-
-        const tbody = document.createElement("tbody");
-        allHours.forEach(hour => {
-            const tr = document.createElement("tr");
-            const tdHour = document.createElement("td");
-            tdHour.innerText = hour;
-            tr.appendChild(tdHour);
-
-            days.forEach(day => {
-                const td = document.createElement("td");
-                if (mentor.disponibilites[day] && mentor.disponibilites[day].includes(hour)) {
-                    td.className = "available";
-                    td.innerText = "Libre";
-                    td.addEventListener("click", () => {
-                        if (confirm(`Réserver ${hour} le ${day} avec ${mentor.nom} ?`)) {
-                            td.className = "booked";
-                            td.innerText = "Réservé";
-                        }
-                    });
-                } else {
-                    td.innerText = "-";
-                }
-                tr.appendChild(td);
-            });
-
-            tbody.appendChild(tr);
-        });
-
-        table.appendChild(tbody);
-        container.appendChild(table);
-    });
+    }
+})
+.catch(error => {
+    console.error('Erreur:', error);
+    document.getElementById('planning-list').innerHTML = "<li>Impossible de charger les disponibilités.</li>";
 });
 </script>
-
 </body>
 </html>
-
