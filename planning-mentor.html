@@ -3,51 +3,128 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mes Disponibilités | MeanSet Academy</title>
+<title>Planning Mentor - MeanSet Academy</title>
 <style>
-body { font-family: Arial; padding: 20px; background: #f0f4f8; color: #333; }
-h1 { text-align: center; color: #4a90e2; }
-form { max-width: 600px; margin: 20px auto; background: white; padding: 20px; border-radius: 10px; }
-label { display: block; margin-top: 15px; font-weight: bold; }
-input[type="checkbox"] { margin-right: 5px; }
-button { margin-top: 20px; padding: 10px 20px; background: #357ABD; color: white; border: none; border-radius: 6px; cursor: pointer; }
-button:hover { background: #2d5d8b; }
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background: url('Fond de page.png') no-repeat center center fixed;
+        background-size: cover;
+        color: #fff;
+        line-height: 1.6;
+    }
+    header {
+        background: linear-gradient(90deg, #1E90FF, #187bcd);
+        color: white;
+        padding: 30px 20px;
+        text-align: center;
+        position: relative;
+    }
+    header h1 { margin: 0; }
+    header img.logo {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        width: 80px;
+        border-radius: 10px;
+    }
+    section {
+        max-width: 900px;
+        margin: 30px auto;
+        background-color: rgba(30,144,255,0.85);
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+    h2 { color: #fff; margin-bottom: 10px; }
+    label { display: block; margin-top: 10px; }
+    input, textarea {
+        width: 100%;
+        padding: 10px;
+        margin-top: 5px;
+        border-radius: 5px;
+        border: none;
+    }
+    .btn {
+        display: inline-block;
+        padding: 12px 25px;
+        margin: 10px 10px 0 0;
+        background-color: #555; /* gris */
+        color: white;
+        text-decoration: none;
+        border-radius: 8px;
+        font-weight: bold;
+        transition: background 0.3s;
+        cursor: pointer;
+    }
+    .btn:hover { background-color: #333; }
 </style>
 </head>
 <body>
+<header>
+    <img src="logo.png" alt="MeanSet Academy" class="logo">
+    <h1>Planning Mentor</h1>
+</header>
 
-<h1>Remplir mon planning</h1>
+<section>
+    <h2>Remplir vos disponibilités</h2>
+    <p>Indiquez vos créneaux pour que les utilisateurs puissent prendre rendez-vous.</p>
 
-<form id="formDisponibilites">
-  <label>Nom du mentor</label>
-  <input type="text" name="nom" required>
+    <form id="mentorForm">
+        <label>Nom et Prénom</label>
+        <input type="text" name="nom" required>
 
-  <label>Disponibilités</label>
-  <div id="checkboxes">
-    <div>Lundi : <input type="checkbox" name="Lundi" value="10:00">10h <input type="checkbox" name="Lundi" value="14:00">14h</div>
-    <div>Mardi : <input type="checkbox" name="Mardi" value="09:00">09h <input type="checkbox" name="Mardi" value="11:00">11h</div>
-    <div>Mercredi : <input type="checkbox" name="Mercredi" value="10:00">10h <input type="checkbox" name="Mercredi" value="14:00">14h</div>
-    <div>Jeudi : <input type="checkbox" name="Jeudi" value="13:00">13h <input type="checkbox" name="Jeudi" value="16:00">16h</div>
-    <div>Vendredi : <input type="checkbox" name="Vendredi" value="10:00">10h <input type="checkbox" name="Vendredi" value="12:00">12h</div>
-  </div>
+        <label>Spécialité / Domaine</label>
+        <input type="text" name="specialite" required>
 
-  <button type="submit">Enregistrer pour validation</button>
-</form>
+        <label>Disponibilités Réel (ex: Lundi 14h-16h)</label>
+        <input type="text" name="disponibiliteReel">
+
+        <label>Disponibilités Virtuel (ex: Mardi 9h-11h)</label>
+        <input type="text" name="disponibiliteVirtuelle">
+
+        <label>Bio / Informations supplémentaires</label>
+        <textarea name="bio" rows="4"></textarea>
+
+        <button type="submit" class="btn">Enregistrer mes disponibilités</button>
+    </form>
+
+    <a href="index.html" class="btn">Retour à l'accueil</a>
+</section>
+
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js"></script>
+<script src="firebase-init.js"></script>
 
 <script>
-document.getElementById("formDisponibilites").addEventListener("submit", function(e){
-  e.preventDefault();
-  const nom = this.nom.value;
-  const disponibilites = {};
-  ["Lundi","Mardi","Mercredi","Jeudi","Vendredi"].forEach(day => {
-    disponibilites[day] = Array.from(document.querySelectorAll(`input[name="${day}"]:checked`)).map(cb => cb.value);
-  });
-  const mentorData = { nom, disponibilites };
-  alert("Votre planning a été enregistré pour validation !\n\n" + JSON.stringify(mentorData, null, 2));
-  this.reset();
+// Référence Firestore
+const db = firebase.firestore();
+
+// Formulaire mentor
+const form = document.getElementById('mentorForm');
+form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const data = {
+        nom: form.nom.value,
+        specialite: form.specialite.value,
+        disponibiliteReel: form.disponibiliteReel.value,
+        disponibiliteVirtuelle: form.disponibiliteVirtuelle.value,
+        bio: form.bio.value,
+        valide: false // Pour que tu puisses valider avant publication
+    };
+
+    // Ajouter dans Firestore collection "mentors"
+    db.collection("mentors").add(data)
+      .then(() => {
+          alert("Vos disponibilités ont été enregistrées. Elles seront publiées après validation.");
+          form.reset();
+      })
+      .catch((error) => {
+          console.error("Erreur:", error);
+          alert("Erreur lors de l'enregistrement.");
+      });
 });
 </script>
-
 </body>
 </html>
-
