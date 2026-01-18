@@ -1,1 +1,13 @@
+[
+  {
+    "nom": "Guirlinger Sara",
+    "disponibilites": {
+      "Lundi": ["10:00", "14:00"],
+      "Mardi": ["09:00", "11:00"],
+      "Mercredi": [],
+      "Jeudi": ["13:00"],
+      "Vendredi": ["10:00", "12:00"]
+    }
+  }
+]
 
