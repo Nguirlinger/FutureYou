@@ -1,14 +1,11 @@
-{
-  "mentors": [
-    {
-      "nom": "Guirlinger Sara",
-      "specialite": "Comptabilité",
-      "photo": "",
-      "disponibiliteVirtuelle": "",
-      "disponibiliteReel": "",
-      "bio": "Master et MBA",
-      "valide": true
-    }
-  ]
-}
-
+[
+  {
+    "nom": "Guirlinger Sara",
+    "specialite": "Comptabilité",
+    "photo": "",
+    "disponibiliteVirtuelle": "Oui",
+    "disponibiliteReel": "Non",
+    "bio": "Master et MBA",
+    "valide": true
+  }
+]
