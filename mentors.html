@@ -1,153 +1,150 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mentors - MeanSet Academy</title>
-<style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mentors - MeanSet Academy</title>
+  <style>
     body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-        background: url('Fond de page.png') no-repeat center center fixed;
-        background-size: cover;
-        line-height: 1.6;
-        color: #fff;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f6fa;
+      color: #333;
+      line-height: 1.6;
     }
+
     header {
-        background: linear-gradient(90deg, #1E90FF, #187bcd);
-        color: white;
-        padding: 30px 20px;
-        text-align: center;
-        position: relative;
+      background: linear-gradient(90deg, #1E90FF, #187bcd);
+      color: white;
+      padding: 30px 20px;
+      text-align: center;
+      position: relative;
     }
+
     header h1 {
-        margin: 0;
+      margin: 0;
     }
-    header img.logo {
-        position: absolute;
-        top: 10px;
-        left: 10px;
-        width: 80px;
-        border-radius: 10px;
+
+    header img {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      width: 80px;
+      height: auto;
+      border-radius: 50%;
+      border: 2px solid white;
     }
-    section {
-        max-width: 900px;
-        margin: 30px auto;
-    }
+
     .mentor-card {
-        background-color: rgba(30,144,255,0.85);
-        padding: 20px;
-        border-radius: 15px;
-        margin-bottom: 20px;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-        display: flex;
-        align-items: center;
+      background-color: #1E90FF; /* bleu principal */
+      color: white;
+      border-radius: 15px;
+      padding: 20px;
+      max-width: 400px;
+      margin: 20px auto;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      text-align: center;
     }
-    .mentor-photo {
-        width: 80px;
-        height: 80px;
-        border-radius: 50%;
-        border: 2px solid white;
-        margin-right: 20px;
+
+    .mentor-card img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid white;
+      margin-bottom: 10px;
     }
-    .mentor-info h2 {
-        margin: 0;
-        color: #fff;
+
+    .mentor-card h2 {
+      margin: 5px 0;
+      font-size: 1.5em;
     }
-    .mentor-info p {
-        margin: 5px 0 10px;
-        font-size: 1em;
+
+    .mentor-card p {
+      margin: 5px 0;
     }
+
     .btn {
-        display: inline-block;
-        padding: 10px 20px;
-        margin-right: 10px;
-        background-color: #555; /* gris pour RDV */
-        color: white;
-        text-decoration: none;
-        border-radius: 8px;
-        font-weight: bold;
-        transition: background 0.3s;
+      display: inline-block;
+      padding: 10px 20px;
+      margin: 5px;
+      background-color: #888; /* gris pour devenir mentor */
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: background 0.3s;
     }
-    .btn:hover { background-color: #333; }
-    .btn-return {
-        background-color: #1E90FF;
+
+    .btn:hover {
+      background-color: #555;
     }
-    .btn-return:hover { background-color: #187bcd; }
+
     footer {
-        text-align: center;
-        padding: 20px;
-        background-color: #333;
-        color: white;
-        margin-top: 30px;
+      text-align: center;
+      padding: 20px;
+      background-color: #333;
+      color: white;
+      margin-top: 30px;
     }
-</style>
+  </style>
 </head>
-    <script>
-  console.log("Test Firebase…");
-  const db = firebase.firestore();
-  db.collection("mentors").get()
-    .then(snapshot => {
-      console.log("Documents récupérés : ", snapshot.size);
-      snapshot.forEach(doc => {
-        console.log(doc.id, doc.data());
-      });
-    })
-    .catch(err => console.error("Erreur Firebase :", err));
-</script>
-
 <body>
-<header>
-    <img src="logo.png" alt="MeanSet Academy" class="logo">
-    <h1>Mentors</h1>
-</header>
+  <header>
+    <h1>Mentors - MeanSet Academy</h1>
+    <img src="logo.png" alt="MeanSet Academy">
+  </header>
 
-<section id="mentors-list">
-    <!-- Les mentors validés seront ajoutés ici -->
-</section>
+  <section id="mentors-container">
+    <!-- Les cartes mentors seront insérées ici par JS -->
+  </section>
 
-<footer>
+  <footer>
     &copy; 2026 MeanSet Academy. Tous droits réservés.
-</footer>
+  </footer>
 
-<!-- Firebase -->
-<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js"></script>
-<script src="firebase-init.js"></script>
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js"></script>
 
-<script>
-// Firestore
-const db = firebase.firestore();
-const mentorsList = document.getElementById('mentors-list');
+  <!-- Initialisation Firebase -->
+  <script src="firebase-init.js"></script>
 
-// Récupérer mentors validés
-db.collection("mentors").where("valide", "==", true).get()
-  .then((querySnapshot) => {
-    if(querySnapshot.empty){
-        mentorsList.innerHTML = "<p>Aucun mentor disponible pour le moment.</p>";
-        return;
-    }
-    querySnapshot.forEach((doc) => {
-        const mentor = doc.data();
-        const card = document.createElement('div');
-        card.classList.add('mentor-card');
-        card.innerHTML = `
-            <img src="${mentor.photo || 'moi.png'}" alt="${mentor.nom}" class="mentor-photo">
-            <div class="mentor-info">
-                <h2>${mentor.nom}</h2>
-                <p>${mentor.specialite}</p>
-                <p>Un mentor est là pour t’orienter dans tes démarches et tes projets.</p>
-                <a href="planning.html" class="btn">Prendre RDV</a>
-            </div>
-        `;
-        mentorsList.appendChild(card);
-    });
-  })
-  .catch((error) => {
-      console.error("Erreur:", error);
-      mentorsList.innerHTML = "<p>Impossible de charger les mentors.</p>";
-  });
-</script>
+  <!-- Script pour récupérer et afficher les mentors -->
+  <script>
+    const db = firebase.firestore();
+
+    const container = document.getElementById("mentors-container");
+
+    db.collection("mentors").where("valide", "==", true).get()
+      .then(snapshot => {
+        if(snapshot.empty){
+          container.innerHTML = "<p>Aucun mentor disponible pour le moment.</p>";
+          return;
+        }
+
+        snapshot.forEach(doc => {
+          const data = doc.data();
+          const card = document.createElement("div");
+          card.classList.add("mentor-card");
+
+          card.innerHTML = `
+            <img src="${data.photo}" alt="${data.nom}">
+            <h2>${data.nom}</h2>
+            <p><strong>Spécialité :</strong> ${data.specialite}</p>
+            <p>${data.bio}</p>
+            <a href="planning.html" class="btn">Prendre RDV</a>
+            <a href="profil.html" class="btn">Voir Profil</a>
+          `;
+
+          container.appendChild(card);
+        });
+      })
+      .catch(err => {
+        console.error("Erreur Firebase :", err);
+        container.innerHTML = "<p>Impossible de charger les mentors pour le moment.</p>";
+      });
+  </script>
 </body>
 </html>
