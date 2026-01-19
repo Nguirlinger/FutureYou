@@ -1,4 +1,4 @@
-// Initialisation de Firebase
+// firebase-init.js
 const firebaseConfig = {
   apiKey: "AIzaSyBmry_A6QZkDjHQRsyI4M7ozaDACXxf8OA",
   authDomain: "meanset-academy.firebaseapp.com",
@@ -10,5 +10,7 @@ const firebaseConfig = {
 };
 
 // Initialiser Firebase
-firebase.initializeApp(firebaseConfig);
+const app = firebase.initializeApp(firebaseConfig);
+const db = firebase.firestore();
+
 
