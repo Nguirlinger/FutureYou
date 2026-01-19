@@ -84,6 +84,19 @@
     }
 </style>
 </head>
+    <script>
+  console.log("Test Firebase…");
+  const db = firebase.firestore();
+  db.collection("mentors").get()
+    .then(snapshot => {
+      console.log("Documents récupérés : ", snapshot.size);
+      snapshot.forEach(doc => {
+        console.log(doc.id, doc.data());
+      });
+    })
+    .catch(err => console.error("Erreur Firebase :", err));
+</script>
+
 <body>
 <header>
     <img src="logo.png" alt="MeanSet Academy" class="logo">
