@@ -90,6 +90,17 @@
     }
   </style>
 </head>
+  
+  <script>
+console.log("Test Firebase…");
+db.collection("mentors").get()
+  .then(snapshot => {
+    console.log("Documents récupérés :", snapshot.size);
+    snapshot.forEach(doc => console.log(doc.id, doc.data()));
+  })
+  .catch(err => console.error("Erreur Firebase :", err));
+</script>
+
 <body>
   <header>
     <h1>Mentors - MeanSet Academy</h1>
