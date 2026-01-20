@@ -1,167 +1,206 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MeanSet Academy</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MeanSet Academy – Club d’affaires nouvelle génération</title>
 
-<style>
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background: url('page/page.png') no-repeat center center fixed;
-    background-size: cover;
-    color: white;
-}
+  <style>
+    :root {
+      --blue-main: #1f3c88;
+      --blue-soft: #2f5aa6;
+      --grey-dark: #2e2e2e;
+      --grey-light: #f2f4f7;
+    }
 
-/* Header */
-header {
-    background: linear-gradient(90deg, #0f4c81, #1E90FF);
-    padding: 20px 30px;
-}
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Arial, sans-serif;
+      background-color: var(--grey-light);
+      color: var(--grey-dark);
+      line-height: 1.6;
+    }
 
-.header-content {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
+    /* ===== HEADER ===== */
+    header {
+      background: linear-gradient(90deg, var(--blue-main), var(--blue-soft));
+      color: white;
+      padding: 60px 30px;
+      position: relative;
+    }
 
-.logo {
-    width: 90px;
-    background: white;
-    padding: 8px;
-    border-radius: 12px;
-}
+    header img.logo {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      width: 70px;
+    }
 
-.profile-pic {
-    width: 70px;
-    border-radius: 50%;
-    border: 2px solid white;
-}
+    header h1 {
+      margin: 0;
+      font-size: 2.8em;
+    }
 
-.title-block {
-    text-align: center;
-    flex: 1;
-}
+    header p {
+      max-width: 800px;
+      font-size: 1.2em;
+      margin-top: 15px;
+    }
 
-.title-block h1 {
-    margin: 0;
-    font-size: 2.6em;
-}
+    /* ===== SECTIONS ===== */
+    section {
+      max-width: 1100px;
+      margin: 60px auto;
+      padding: 40px;
+      background: white;
+      border-radius: 14px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    }
 
-.slogan {
-    margin-top: 6px;
-    font-size: 1.1em;
-    opacity: 0.9;
-}
+    h2 {
+      color: var(--blue-main);
+      margin-top: 0;
+    }
 
-/* Sections */
-section {
-    max-width: 900px;
-    margin: 40px auto;
-    padding: 30px;
-    background: rgba(0,0,0,0.6);
-    border-radius: 15px;
-}
+    /* ===== BUTTONS ===== */
+    .btn {
+      display: inline-block;
+      margin: 15px 15px 0 0;
+      padding: 14px 26px;
+      background-color: var(--blue-main);
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 600;
+      transition: background 0.3s;
+    }
 
-h2 {
-    color: #66b3ff;
-}
+    .btn:hover {
+      background-color: var(--blue-soft);
+    }
 
-/* Buttons */
-.btn {
-    display: inline-block;
-    background: #1E90FF;
-    color: white;
-    padding: 12px 20px;
-    border-radius: 8px;
-    margin: 10px 10px 0 0;
-    text-decoration: none;
-    font-weight: bold;
-}
+    .btn.secondary {
+      background-color: #6b7280;
+    }
 
-.btn:hover {
-    background: #0f4c81;
-}
+    .btn.secondary:hover {
+      background-color: #4b5563;
+    }
 
-/* Footer */
-footer {
-    text-align: center;
-    padding: 20px;
-    background: rgba(0,0,0,0.7);
-    margin-top: 40px;
-}
-</style>
+    /* ===== GRID ===== */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 30px;
+      margin-top: 30px;
+    }
+
+    .card {
+      background: var(--grey-light);
+      padding: 25px;
+      border-radius: 12px;
+    }
+
+    .card h3 {
+      margin-top: 0;
+      color: var(--blue-main);
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background-color: #1c1c1c;
+      color: #ccc;
+      padding: 40px 20px;
+      text-align: center;
+      font-size: 0.9em;
+    }
+
+    footer a {
+      color: #9ca3af;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
 </head>
 
 <body>
 
 <header>
-    <div class="header-content">
-        <img src="logo.png" class="logo" alt="MeanSet Academy">
+  <!-- Logo -->
+  <img src="logo.png" alt="MeanSet Academy" class="logo">
 
-        <div class="title-block">
-            <h1>MeanSet Academy</h1>
-            <p class="slogan">Club virtuel & réel — Mentors, savoir-faire et savoir-être</p>
-        </div>
-
-        <img src="moi.png" class="profile-pic" alt="Fondateur">
-    </div>
+  <h1>MeanSet Academy</h1>
+  <p>
+    Le club d’affaires nouvelle génération qui fusionne le virtuel ultra-immersif
+    et le réel pour transformer une idée en projet concret.
+  </p>
 </header>
 
 <section>
-<h2>À propos</h2>
-
-<p><strong>MeanSet Academy est un club d’affaires nouvelle génération.</strong></p>
-
-<p>
-Il fusionne le <strong>virtuel ultra-immersif</strong> et le <strong>réel</strong> pour permettre à chacun de développer ses projets grâce à la <strong>vidéo</strong>, aux <strong>simulations</strong>, au <strong>mentorat flexible</strong>, au <strong>live</strong> et à l’<strong>IA à la demande</strong>.
-</p>
-
-<p>
-La plateforme met l’accent sur le <strong>collaboratif</strong>, les <strong>challenges</strong>, le <strong>partage de micro-compétences</strong> et la connexion directe avec des <strong>mentors expérimentés</strong>.
-</p>
-
-<p>
-<strong>Accessible à tous</strong>, MeanSet Academy permet de passer d’une idée à un projet concret, entouré des bonnes personnes, au bon moment.
-</p>
-
-<a href="mentors.html" class="btn">Rencontrer les mentors</a>
-<a href="microcompetences.html" class="btn">Micro-Compétences</a>
-<a href="projets-collaboratifs.html" class="btn">Projets Collaboratifs</a>
-<a href="profil.html" class="btn">Mon Trajet</a>
-
+  <h2>Pourquoi MeanSet Academy ?</h2>
+  <p>
+    MeanSet Academy est née d’un constat simple : aujourd’hui, se lancer, évoluer
+    ou structurer un projet est devenu complexe. Les réseaux sont omniprésents,
+    l’intelligence artificielle progresse à grande vitesse, et pourtant beaucoup
+    de porteurs de projets avancent seuls, sans repères clairs.
+  </p>
+  <p>
+    Cette plateforme a été conçue <strong>pour eux, et avec eux</strong>.
+    Elle évolue selon les besoins réels des utilisateurs, qu’ils soient étudiants,
+    entrepreneurs, créateurs, freelances ou dirigeants.
+  </p>
 </section>
 
 <section>
-<h2>Fonctionnalités</h2>
-<ul>
-<li>Mentorat humain et IA à la demande</li>
-<li>Apprentissage immersif par vidéo & simulation</li>
-<li>Challenges collaboratifs</li>
-<li>Réseau professionnel virtuel & réel</li>
-<li>Plateforme ouverte à tous les profils</li>
-</ul>
+  <h2>Une approche hybride : virtuel & réel</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>Mentorat humain</h3>
+      <p>
+        Des mentors issus de tous horizons : étudiants qualifiés, experts,
+        indépendants, chefs d’entreprise. Leur rôle : orienter, conseiller,
+        sécuriser les démarches et ouvrir des perspectives.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Micro-compétences & tutoriels</h3>
+      <p>
+        Apprendre vite, concrètement : vidéos, ressources ciblées, cartes mentales
+        et partages de savoir-faire utiles immédiatement.
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Projets & trajectoires</h3>
+      <p>
+        Suivre son projet, organiser ses tâches, partager des documents,
+        collaborer et visualiser l’avancement de son parcours.
+      </p>
+    </div>
+  </div>
 </section>
 
 <section>
-<h2>Contact</h2>
-<p>Envie de rejoindre MeanSet Academy ou de devenir mentor ?</p>
-<a href="mailto:contact@meanset.academy" class="btn">Contact</a>
+  <h2>Explorer la plateforme</h2>
+  <a href="mentors.html" class="btn">Découvrir les mentors</a>
+  <a href="microcompetences.html" class="btn">Micro-compétences</a>
+  <a href="projets-collaboratifs.html" class="btn">Projets collaboratifs</a>
+  <a href="profil.html" class="btn secondary">Mon trajet de projet</a>
 </section>
 
 <footer>
-© 2026 MeanSet Academy — Tous droits réservés
+  <p>© 2026 MeanSet Academy – Tous droits réservés</p>
+  <p>
+    <a href="mentions-legales.html">Mentions légales</a> |
+    <a href="cgv.html">Conditions générales</a>
+  </p>
 </footer>
-
-    <!-- Firebase SDK -->
-<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js"></script>
-
-<!-- Ton fichier d'initialisation Firebase -->
-<script src="firebase-init.js"></script>
 
 </body>
 </html>
+
