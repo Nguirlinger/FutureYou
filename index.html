@@ -13,159 +13,62 @@
       --gray-light: #f4f6f9;
     }
 
-    /* ===== HEADER BAR ===== */
-.header-bar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 20px;
-}
-
-/* Bloc central pour titre et texte */
-.header-center {
-  text-align: center;
-  flex: 1;
-}
-
-/* Boutons centrés */
-.cta-buttons {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  margin-top: 20px;
-}
-
-/* ===== AVATAR ===== */
-.avatar-container {
-  text-align: center;
-}
-
-.avatar {
-  width: 90px;
-  height: 90px;
-  border-radius: 50%;
-  cursor: pointer;
-  transition: transform 0.3s;
-}
-
-.avatar:hover {
-  transform: scale(1.05);
-}
-
-.avatar-btn {
-  margin-top: 5px;
-  background: #ddd;
-  border: none;
-  padding: 6px 12px;
-  border-radius: 20px;
-  cursor: pointer;
-  font-weight: bold;
-  transition: 0.3s;
-}
-
-.avatar-btn:hover {
-  background: #ccc;
-}
-
-
     * {
       box-sizing: border-box;
       font-family: "Segoe UI", Arial, sans-serif;
-}
-    
-      .avatar-container {
-  position: absolute;
-  top: 15px;
-  right: 20px;
-  text-align: center;
-}
-
-.avatar {
-  width: 90px;
-  height: 90px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 3px solid white;
-}
-
-.avatar-btn {
-  margin-top: 6px;
-  padding: 4px 12px;
-  font-size: 0.75rem;
-  border-radius: 12px;
-  border: none;
-  background-color: #d1d5db;
-  color: #1f2937;
-  cursor: pointer;
-}
-
-.avatar-btn:hover {
-  background-color: #bfc4cc;
-}
+    }
 
     body {
       margin: 0;
       background-color: var(--gray-light);
       color: var(--gray-dark);
-      line-height: 1.6;  
+      line-height: 1.6;
     }
 
-    /* ===== HEADER ===== */
-    header {
+    /* ===== HEADER BAR ===== */
+    .header-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 40px;
       background: linear-gradient(135deg, var(--blue-main), var(--blue-dark));
       color: white;
-      padding: 40px 20px 70px;
-      position: relative;
+    }
+
+    .logo {
+      height: 70px;
+    }
+
+    .header-center {
+      flex: 1;
       text-align: center;
     }
 
-    .header-bar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      max-width: 1200px;
-      margin: auto;
-    }
-
-      .logo {
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  height: 70px; /* ← augmente ici si besoin (80px, 90px) */
-}
-
-    }
-
-    .avatar {
-      width: 55px;
-      height: 55px;
-      border-radius: 50%;
-      cursor: pointer;
-      border: 2px solid white;
-    }
-
-    header h1 {
+    .header-center h1 {
+      margin: 0;
       font-size: 3rem;
-      margin: 30px 0 10px;
     }
 
-    header p {
+    .header-center p {
+      margin: 10px 0 0 0;
       font-size: 1.2rem;
-      max-width: 800px;
-      margin: auto;
+      opacity: 0.9;
     }
 
     .cta-buttons {
-      margin-top: 30px;
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
     }
 
     .cta-buttons a {
       text-decoration: none;
-      margin: 10px;
-      padding: 14px 26px;
+      padding: 12px 26px;
       border-radius: 30px;
       font-weight: bold;
-      display: inline-block;
+      transition: 0.3s;
     }
 
     .btn-primary {
@@ -173,9 +76,49 @@
       color: var(--blue-main);
     }
 
+    .btn-primary:hover {
+      background-color: #dde5ff;
+    }
+
     .btn-secondary {
       border: 2px solid white;
       color: white;
+    }
+
+    .btn-secondary:hover {
+      background-color: rgba(255,255,255,0.15);
+    }
+
+    /* ===== AVATAR ===== */
+    .avatar-container {
+      text-align: center;
+    }
+
+    .avatar {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+
+    .avatar:hover {
+      transform: scale(1.05);
+    }
+
+    .avatar-btn {
+      margin-top: 8px;
+      background: #ddd;
+      border: none;
+      padding: 8px 14px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .avatar-btn:hover {
+      background: #ccc;
     }
 
     /* ===== SECTIONS ===== */
@@ -192,14 +135,19 @@
       text-align: center;
     }
 
-    .box {
+    .why {
       background-color: white;
       border-radius: 16px;
       padding: 40px;
       box-shadow: 0 10px 30px rgba(0,0,0,0.08);
     }
 
-    /* ===== CARDS ===== */
+    .why p {
+      margin-bottom: 16px;
+      font-size: 1.05rem;
+    }
+
+    /* ===== CONCEPT CARDS ===== */
     .cards {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -217,34 +165,7 @@
 
     .card h3 {
       color: var(--blue-main);
-    }
-
-    /* ===== AVATAR MODAL ===== */
-    .modal {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.6);
-      align-items: center;
-      justify-content: center;
-    }
-
-    .modal-content {
-      background: white;
-      padding: 30px;
-      border-radius: 16px;
-      max-width: 500px;
-      text-align: center;
-    }
-
-    .modal button {
-      margin-top: 20px;
-      padding: 10px 20px;
-      border-radius: 20px;
-      border: none;
-      background: var(--blue-main);
-      color: white;
-      cursor: pointer;
+      margin-bottom: 10px;
     }
 
     /* ===== FOOTER ===== */
@@ -261,172 +182,104 @@
       text-decoration: none;
       margin: 0 10px;
     }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
   </style>
 </head>
 
 <body>
-
-<header>
+  <!-- ===== HEADER BAR ===== -->
   <div class="header-bar">
     <img src="logo.png" alt="Logo MeanSet Academy" class="logo">
+
+    <div class="header-center">
+      <h1>MeanSet Academy</h1>
+      <p>
+        Le club d’affaires nouvelle génération qui fusionne le virtuel ultra-immersif,
+        le réel, le mentorat et l’IA pour transformer une idée en projet concret.
+      </p>
+
+      <div class="cta-buttons">
+        <a href="projets.html" class="btn-primary">Mon projet</a>
+        <a href="mentors.html" class="btn-secondary">Découvrir les mentors</a>
+      </div>
+    </div>
+
     <div class="avatar-container">
-  <img src="avatar.png" alt="Avatar Natacha" class="avatar">
-  <button class="avatar-btn" onclick="ouvrirPresentation()">CLIC</button>
-</div>
-
-
-  <h1>MeanSet Academy</h1>
-  <p>
-    Le club d’affaires nouvelle génération qui fusionne le virtuel,
-    le mentorat et l’IA pour transformer une idée en projet concret.
-  </p>
-
-  <div class="cta-buttons">
-    <a href="projets.html" class="btn-primary">Mon projet</a>
-    <a href="mentors.html" class="btn-secondary">Découvrir les mentors</a>
+      <img src="avatar.png" alt="Avatar Natacha" class="avatar" onclick="parlerAvatar()">
+      <button class="avatar-btn" onclick="parlerAvatar()">CLIC</button>
+    </div>
   </div>
-</header>
 
-<section>
-  <h2>Pourquoi MeanSet Academy ?</h2>
-  <div class="box">
+  <!-- ===== POURQUOI ===== -->
+  <section>
+    <h2>Pourquoi MeanSet Academy ?</h2>
+
+    <div class="why">
+      <p>
+        <strong>MeanSet Academy</strong> est née d’un constat simple mais essentiel : aujourd’hui,
+        beaucoup de personnes souhaitent <strong>entreprendre</strong>, se <strong>lancer</strong>, évoluer ou structurer
+        leurs projets, mais ne savent pas toujours par où commencer ni vers qui se tourner.
+      </p>
+
+      <p>
+        Dans un monde où les <strong>réseaux</strong> sont omniprésents et où l’<strong>intelligence artificielle</strong>
+        prend une place grandissante, il devient indispensable d’être <strong>bien orienté</strong>,
+        <strong>accompagné</strong> et entouré des bonnes compétences.
+      </p>
+
+      <p>
+        <strong>MeanSet Academy</strong> accompagne les porteurs de projets, les créateurs d’entreprise,
+        les étudiants et toutes les personnes qui souhaitent aller plus loin,
+        grâce à un écosystème mêlant <strong>mentorat réel et virtuel</strong>, <strong>micro-compétences</strong>,
+        <strong>challenges</strong>, <strong>outils collaboratifs</strong> et <strong>IA à la demande</strong>.
+      </p>
+
+      <p>
+        <strong>La plateforme est faite pour vous, et avec vous.</strong>
+        Elle évolue en fonction des besoins de sa communauté afin de proposer
+        un <strong>accompagnement humain</strong>, <strong>accessible</strong> et <strong>concret</strong>.
+      </p>
+    </div>
+  </section>
+
+  <!-- ===== CONCEPT CARDS ===== -->
+  <section>
+    <h2>Un écosystème pour avancer</h2>
+
+    <div class="cards">
+      <div class="card">
+        <h3>Mentorat hybride</h3>
+        <p>Des mentors réels et virtuels pour vous orienter, vous challenger et vous guider.</p>
+      </div>
+
+      <div class="card">
+        <h3>Projets & trajectoires</h3>
+        <p>Suivez votre parcours, vos tâches, vos objectifs et vos avancées.</p>
+      </div>
+
+      <div class="card">
+        <h3>IA & micro-compétences</h3>
+        <p>Des outils intelligents pour apprendre vite, tester, simuler et décider.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <p>© 2026 MeanSet Academy – Tous droits réservés</p>
     <p>
-     <p>
-<strong>MeanSet Academy</strong> est née d’un constat simple mais essentiel :
-aujourd’hui, beaucoup de personnes souhaitent
-<strong>entreprendre</strong>,
-<strong>se lancer</strong>,
-<strong>évoluer</strong> ou
-<strong>structurer leurs projets</strong>,
-mais ne savent pas toujours
-<strong>par où commencer</strong>
-ni
-<strong>vers qui se tourner</strong>.
-</p>
-
-<p>
-Dans un monde où les
-<strong>réseaux sont omniprésents</strong>
-et où
-<strong>l’intelligence artificielle</strong>
-prend une place grandissante,
-il devient indispensable d’être
-<strong>bien orienté</strong>,
-<strong>accompagné</strong>
-et
-<strong>entouré des bonnes compétences</strong>.
-</p>
-
-<p>
-<strong>MeanSet Academy accompagne</strong>
-les <strong>porteurs de projets</strong>,
-les <strong>créateurs d’entreprise</strong>,
-les <strong>étudiants</strong>
-et toutes les personnes qui souhaitent
-<strong>aller plus loin</strong>,
-grâce à un écosystème mêlant
-<strong>mentorat réel et virtuel</strong>,
-<strong>micro-compétences</strong>,
-<strong>challenges</strong>,
-<strong>outils collaboratifs</strong>
-et
-<strong>IA à la demande</strong>.
-</p>
-
-<p>
-<strong>La plateforme est faite pour vous, et avec vous.</strong><br>
-Elle évolue en fonction des
-<strong>besoins de sa communauté</strong>
-afin de proposer un accompagnement
-<strong>humain</strong>,
-<strong>accessible</strong>
-et
-<strong>concret</strong>.
-</p>
-
-  </div>
-</section>
-
-<section>
-  <h2>Notre mission</h2>
-  <div class="box">
-    <p><strong>MeanSet Academy a pour mission de :</strong></p>
-    <ul>
-      <li>Accompagner les créateurs, entrepreneurs et porteurs d’idées</li>
-      <li>Donner accès à des mentors et des ressources concrètes</li>
-      <li>Aider à structurer un projet pas à pas</li>
-      <li>Utiliser l’IA comme levier, pas comme obstacle</li>
-      <li>Créer une communauté collaborative et évolutive</li>
-    </ul>
-    <p>
-      L’objectif est simple : passer d’une idée à un projet viable,
-      entouré des bonnes personnes, au bon moment.
+      <a href="mentions-legales.html">Mentions légales</a> |
+      <a href="cgv.html">CGV</a>
     </p>
-  </div>
-</section>
-
-<section>
-  <h2>Un écosystème pour avancer</h2>
-  <div class="cards">
-    <div class="card">
-      <h3>Mentorat hybride</h3>
-      <p>Humain, flexible et adapté à chaque parcours.</p>
-    </div>
-    <div class="card">
-      <h3>Mon Trajet</h3>
-      <p>Suivi des tâches, documents et objectifs.</p>
-    </div>
-    <div class="card">
-      <h3>IA utile</h3>
-      <p>Structurer, analyser, tester et décider.</p>
-    </div>
-  </div>
-</section>
-
-<footer>
-  <p>© 2026 MeanSet Academy – Tous droits réservés</p>
-  <p>
-    <a href="mentions-legales.html">Mentions légales</a> |
-    <a href="cgv.html">CGV</a>
-  </p>
-</footer>
-
-<!-- MODAL AVATAR -->
-<div class="modal" id="avatarModal">
-  <div class="modal-content">
-    <p>
-      Je m’appelle <strong>Natacha Guirlinger</strong>.<br><br>
-      Mon parcours personnel et professionnel m’a appris que le monde évolue vite,
-      entre réseaux et intelligence artificielle.<br><br>
-      De nature à aider et transmettre, j’ai créé MeanSet Academy pour offrir
-      un outil capable d’accompagner chacun dans ses démarches,
-      ses projets et ses ambitions.
-    </p>
-    <button onclick="closeAvatar()">Fermer</button>
-  </div>
-</div>
-
-<script>
-  function openAvatar() {
-    document.getElementById("avatarModal").style.display = "flex";
-  }
-  function closeAvatar() {
-    document.getElementById("avatarModal").style.display = "none";
-  }
-</script>
+  </footer>
 
   <script>
-function ouvrirPresentation() {
-  alert(
-    "Je m’appelle Natacha Guirlinger.\n\n" +
-    "Mon parcours professionnel et personnel m’a appris que le monde évolue vite, " +
-    "entre les réseaux et l’intelligence artificielle.\n\n" +
-    "De nature tournée vers l’aide et le partage, j’ai créé MeanSet Academy " +
-    "pour accompagner celles et ceux qui veulent avancer, structurer leurs projets " +
-    "et passer à l’action."
-  );
-}
-</script>
-
+    function parlerAvatar() {
+      alert("Je m'appelle Natacha Guirlinger. Mon expérience professionnelle et personnelle m'ont appris que le monde évolue entre les réseaux et l'IA, et qu'il faut un apprentissage constant. De nature à aider mon prochain, je souhaite transmettre un outil capable d'accompagner les autres dans leurs démarches.");
+    }
+  </script>
 </body>
 </html>
