@@ -16,13 +16,43 @@
     * {
       box-sizing: border-box;
       font-family: "Segoe UI", Arial, sans-serif;
-    }
+}
+    
+      .avatar-container {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  text-align: center;
+}
+
+.avatar {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid white;
+}
+
+.avatar-btn {
+  margin-top: 6px;
+  padding: 4px 12px;
+  font-size: 0.75rem;
+  border-radius: 12px;
+  border: none;
+  background-color: #d1d5db;
+  color: #1f2937;
+  cursor: pointer;
+}
+
+.avatar-btn:hover {
+  background-color: #bfc4cc;
+}
 
     body {
       margin: 0;
       background-color: var(--gray-light);
       color: var(--gray-dark);
-      line-height: 1.6;
+      line-height: 1.6;  
     }
 
     /* ===== HEADER ===== */
@@ -42,8 +72,13 @@
       margin: auto;
     }
 
-    .logo {
-      height: 45px;
+      .logo {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  height: 70px; /* ← augmente ici si besoin (80px, 90px) */
+}
+
     }
 
     .avatar {
@@ -178,9 +213,12 @@
 
 <header>
   <div class="header-bar">
-    <img src="logo.png" class="logo" alt="MeanSet Academy">
-    <img src="avatar.png" class="avatar" alt="Avatar" onclick="openAvatar()">
-  </div>
+    <img src="logo.png" alt="Logo MeanSet Academy" class="logo">
+    <div class="avatar-container">
+  <img src="avatar.png" alt="Avatar Natacha" class="avatar">
+  <button class="avatar-btn" onclick="ouvrirPresentation()">CLIC</button>
+</div>
+
 
   <h1>MeanSet Academy</h1>
   <p>
@@ -198,14 +236,59 @@
   <h2>Pourquoi MeanSet Academy ?</h2>
   <div class="box">
     <p>
-      MeanSet Academy est née d’un besoin réel : aider celles et ceux qui veulent se lancer,
-      évoluer ou structurer leurs projets dans un monde où les réseaux et l’IA sont devenus incontournables.
-    </p>
-    <p>
-      Trop souvent, les idées restent bloquées faute de cadre, de méthode ou d’accompagnement.
-      MeanSet Academy apporte des repères clairs, humains et accessibles.
-    </p>
-    <p><strong>Une plateforme pensée pour vous, et construite avec vous.</strong></p>
+     <p>
+<strong>MeanSet Academy</strong> est née d’un constat simple mais essentiel :
+aujourd’hui, beaucoup de personnes souhaitent
+<strong>entreprendre</strong>,
+<strong>se lancer</strong>,
+<strong>évoluer</strong> ou
+<strong>structurer leurs projets</strong>,
+mais ne savent pas toujours
+<strong>par où commencer</strong>
+ni
+<strong>vers qui se tourner</strong>.
+</p>
+
+<p>
+Dans un monde où les
+<strong>réseaux sont omniprésents</strong>
+et où
+<strong>l’intelligence artificielle</strong>
+prend une place grandissante,
+il devient indispensable d’être
+<strong>bien orienté</strong>,
+<strong>accompagné</strong>
+et
+<strong>entouré des bonnes compétences</strong>.
+</p>
+
+<p>
+<strong>MeanSet Academy accompagne</strong>
+les <strong>porteurs de projets</strong>,
+les <strong>créateurs d’entreprise</strong>,
+les <strong>étudiants</strong>
+et toutes les personnes qui souhaitent
+<strong>aller plus loin</strong>,
+grâce à un écosystème mêlant
+<strong>mentorat réel et virtuel</strong>,
+<strong>micro-compétences</strong>,
+<strong>challenges</strong>,
+<strong>outils collaboratifs</strong>
+et
+<strong>IA à la demande</strong>.
+</p>
+
+<p>
+<strong>La plateforme est faite pour vous, et avec vous.</strong><br>
+Elle évolue en fonction des
+<strong>besoins de sa communauté</strong>
+afin de proposer un accompagnement
+<strong>humain</strong>,
+<strong>accessible</strong>
+et
+<strong>concret</strong>.
+</p>
+
   </div>
 </section>
 
@@ -275,6 +358,19 @@
   function closeAvatar() {
     document.getElementById("avatarModal").style.display = "none";
   }
+</script>
+
+  <script>
+function ouvrirPresentation() {
+  alert(
+    "Je m’appelle Natacha Guirlinger.\n\n" +
+    "Mon parcours professionnel et personnel m’a appris que le monde évolue vite, " +
+    "entre les réseaux et l’intelligence artificielle.\n\n" +
+    "De nature tournée vers l’aide et le partage, j’ai créé MeanSet Academy " +
+    "pour accompagner celles et ceux qui veulent avancer, structurer leurs projets " +
+    "et passer à l’action."
+  );
+}
 </script>
 
 </body>
