@@ -1,237 +1,285 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>MeanSet Academy – Club d’affaires nouvelle génération</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MeanSet Academy</title>
 
-  <style>
-    :root {
-      --blue-main: #1f3c88;
-      --blue-soft: #2f5aa6;
-      --grey-dark: #2e2e2e;
-      --grey-light: #f2f4f7;
-    }
+<style>
+/* =====================
+   BASE
+===================== */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f4f6f8;
+    color: #1f2937;
+    line-height: 1.6;
+}
 
-    body {
-      margin: 0;
-      font-family: "Segoe UI", Arial, sans-serif;
-      background-color: var(--grey-light);
-      color: var(--grey-dark);
-      line-height: 1.6;
-    }
+a {
+    text-decoration: none;
+}
 
-    /* ===== HEADER ===== */
+/* =====================
+   HEADER
+===================== */
+header {
+    background: linear-gradient(90deg, #1E3A8A, #2563EB);
+    color: white;
+    padding: 20px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2em;
+}
+
+.logo {
+    height: 60px;
+}
+
+/* ===== Avatar animé ===== */
+.avatar {
+    height: 70px;
+    width: 70px;
+    border-radius: 50%;
+    border: 3px solid white;
+    cursor: pointer;
+    animation: floatAvatar 3s ease-in-out infinite;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+@keyframes floatAvatar {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+    100% { transform: translateY(0); }
+}
+
+.avatar:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(59,130,246,0.9);
+}
+
+/* =====================
+   MAIN
+===================== */
+main {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+/* =====================
+   HERO
+===================== */
+.hero {
+    background: #1E3A8A;
+    color: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.hero h2 {
+    margin-top: 0;
+    font-size: 2em;
+}
+
+.hero p {
+    font-size: 1.1em;
+}
+
+/* =====================
+   BOUTONS
+===================== */
+.buttons {
+    margin-top: 25px;
+}
+
+.btn {
+    display: inline-block;
+    margin: 10px 15px 0 0;
+    padding: 14px 28px;
+    background: #6B7280;
+    color: white;
+    border-radius: 10px;
+    font-weight: bold;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.btn:hover {
+    background: #4B5563;
+    transform: translateY(-2px);
+}
+
+/* =====================
+   SECTIONS
+===================== */
+.section {
+    background: white;
+    margin-top: 40px;
+    padding: 35px;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.section h3 {
+    color: #1E3A8A;
+    margin-top: 0;
+}
+
+/* =====================
+   FOOTER
+===================== */
+footer {
+    margin-top: 60px;
+    background: #374151;
+    color: white;
+    text-align: center;
+    padding: 25px;
+}
+
+footer a {
+    color: white;
+    margin: 0 10px;
+}
+
+/* =====================
+   RESPONSIVE
+===================== */
+@media (max-width: 768px) {
     header {
-      background: linear-gradient(90deg, var(--blue-main), var(--blue-soft));
-      color: white;
-      padding: 60px 30px;
-      position: relative;
+        flex-direction: column;
+        gap: 15px;
     }
 
-    header img.logo {
-      position: absolute;
-      top: 20px;
-      left: 20px;
-      width: 70px;
-    }
-
-    header h1 {
-      margin: 0;
-      font-size: 2.8em;
-    }
-
-    header p {
-      max-width: 800px;
-      font-size: 1.2em;
-      margin-top: 15px;
-    }
-
-    /* ===== SECTIONS ===== */
-    section {
-      max-width: 1100px;
-      margin: 60px auto;
-      padding: 40px;
-      background: white;
-      border-radius: 14px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-    }
-
-    h2 {
-      color: var(--blue-main);
-      margin-top: 0;
-    }
-
-    /* ===== BUTTONS ===== */
     .btn {
-      display: inline-block;
-      margin: 15px 15px 0 0;
-      padding: 14px 26px;
-      background-color: var(--blue-main);
-      color: white;
-      text-decoration: none;
-      border-radius: 8px;
-      font-weight: 600;
-      transition: background 0.3s;
+        display: block;
+        width: 100%;
     }
-
-    .btn:hover {
-      background-color: var(--blue-soft);
-    }
-
-    .btn.secondary {
-      background-color: #6b7280;
-    }
-
-    .btn.secondary:hover {
-      background-color: #4b5563;
-    }
-
-    /* ===== GRID ===== */
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 30px;
-      margin-top: 30px;
-    }
-
-    .card {
-      background: var(--grey-light);
-      padding: 25px;
-      border-radius: 12px;
-    }
-
-    .card h3 {
-      margin-top: 0;
-      color: var(--blue-main);
-    }
-
-    /* ===== FOOTER ===== */
-    footer {
-      background-color: #1c1c1c;
-      color: #ccc;
-      padding: 40px 20px;
-      text-align: center;
-      font-size: 0.9em;
-    }
-
-    footer a {
-      color: #9ca3af;
-      text-decoration: none;
-      margin: 0 10px;
-    }
-
-    footer a:hover {
-      text-decoration: underline;
-    }
-  </style>
+}
+</style>
 </head>
 
 <body>
 
+<!-- =====================
+     HEADER
+===================== -->
 <header>
-  <!-- Logo -->
-  <img src="logo.png" alt="MeanSet Academy" class="logo">
-
-  <h1>MeanSet Academy</h1>
-  <p>
-    Le club d’affaires nouvelle génération qui fusionne le virtuel ultra-immersif
-    et le réel pour transformer une idée en projet concret.
-  </p>
+    <img src="logo.png" alt="Logo MeanSet Academy" class="logo">
+    <h1>MeanSet Academy</h1>
+    <img src="avatar.png" alt="Avatar MeanSet Academy" class="avatar" onclick="parlerAvatar()">
 </header>
 
-<section>
-  
-  <h2>Pourquoi MeanSet Academy ?</h2>
+<!-- =====================
+     CONTENU
+===================== -->
+<main>
 
-  <p>
-    Chez <strong>MeanSet Academy</strong>, notre mission est simple :
-    aider chacun à se lancer, que ce soit dans les réseaux professionnels
-    ou pour créer son entreprise.
-  </p>
+    <!-- HERO -->
+    <div class="hero">
+        <h2>Un club d’affaires nouvelle génération</h2>
 
-  <p>
-    Grâce à des <strong>mentors expérimentés</strong>, des <strong>tutoriels guidés</strong>
-    et des <strong>cartes mentales interactives</strong>, vous pouvez structurer
-    vos idées, suivre vos projets et progresser efficacement.
-  </p>
+        <p>
+            MeanSet Academy est née d’un constat simple : beaucoup de personnes ont des idées,
+            des envies, des projets… mais manquent d’accompagnement, de structure et des bonnes connexions.
+        </p>
 
-  <p>
-    Retrouvez vos projets via le bouton <strong>« Mon Trajet »</strong> pour
-    suivre vos tâches, partager vos documents et collaborer facilement.
-  </p>
+        <p>
+            Ici, nous fusionnons le <strong>virtuel ultra-immersif</strong> et le <strong>réel</strong>
+            pour permettre à chacun de développer ses projets grâce à la vidéo,
+            aux simulations, au mentorat flexible, au live et à l’IA à la demande.
+        </p>
 
-  <p><strong>MeanSet Academy est un club d’affaires nouvelle génération.</strong></p>
-
-  <p>
-    Il fusionne le <strong>virtuel ultra-immersif</strong> et le <strong>réel</strong>
-    pour permettre à chacun de développer ses projets grâce à la
-    <strong>vidéo</strong>, aux <strong>simulations</strong>, au
-    <strong>mentorat flexible</strong>, au <strong>live</strong> et à
-    l’<strong>IA à la demande</strong>.
-  </p>
-
-  <p>
-    La plateforme met l’accent sur le <strong>collaboratif</strong>,
-    les <strong>challenges</strong>, le <strong>partage de micro-compétences</strong>
-    et la connexion directe avec des <strong>mentors expérimentés</strong>.
-  </p>
-
-  <p>
-    <strong>Accessible à tous</strong>, MeanSet Academy permet de passer
-    d’une idée à un projet concret, entouré des bonnes personnes,
-    au bon moment.
-  </p>
-</section>
-
-</section>
-
-<section>
-  <h2>Une approche hybride : virtuel & réel</h2>
-  <div class="grid">
-    <div class="card">
-      <h3>Mentorat humain</h3>
-      <p>
-        Des mentors issus de tous horizons : étudiants qualifiés, experts,
-        indépendants, chefs d’entreprise. Leur rôle : orienter, conseiller,
-        sécuriser les démarches et ouvrir des perspectives.
-      </p>
+        <div class="buttons">
+            <a href="mentors.html" class="btn">Rencontrer des mentors</a>
+            <a href="microcompetences.html" class="btn">Micro-compétences</a>
+            <a href="projets.html" class="btn">Mon Trajet / Projets</a>
+        </div>
     </div>
 
-    <div class="card">
-      <h3>Micro-compétences & tutoriels</h3>
-      <p>
-        Apprendre vite, concrètement : vidéos, ressources ciblées, cartes mentales
-        et partages de savoir-faire utiles immédiatement.
-      </p>
+    <!-- POURQUOI -->
+    <div class="section">
+        <h3>Pourquoi MeanSet Academy ?</h3>
+
+        <p>
+            Le site est fait <strong>pour vous et avec vous</strong>.
+            Il évolue selon les besoins réels des porteurs de projets,
+            des créateurs d’entreprise et de celles et ceux qui veulent aller plus loin.
+        </p>
+
+        <p>
+            Les réseaux sont omniprésents, l’IA est en plein essor,
+            mais l’humain reste au cœur de la réussite.
+            MeanSet Academy met l’accent sur le <strong>collaboratif</strong>,
+            les <strong>challenges</strong>, le <strong>partage de micro-compétences</strong>
+            et la connexion directe avec des <strong>mentors expérimentés</strong>.
+        </p>
+
+        <p>
+            <strong>Accessible à tous</strong>, MeanSet Academy permet de passer
+            d’une idée à un projet concret, entouré des bonnes personnes,
+            au bon moment.
+        </p>
     </div>
 
-    <div class="card">
-      <h3>Projets & trajectoires</h3>
-      <p>
-        Suivre son projet, organiser ses tâches, partager des documents,
-        collaborer et visualiser l’avancement de son parcours.
-      </p>
+    <!-- MISSION -->
+    <div class="section">
+        <h3>Notre mission</h3>
+
+        <p>
+            Aider les jeunes à se lancer, accompagner ceux qui veulent structurer
+            ou développer leur activité, et offrir un espace clair pour avancer.
+        </p>
+
+        <p>
+            Grâce aux mentors, aux tutoriels, aux cartes mentales
+            et aux outils collaboratifs,
+            chacun peut construire son projet étape par étape,
+            sans être seul.
+        </p>
     </div>
-  </div>
-</section>
 
-<section>
-  <h2>Explorer la plateforme</h2>
-  <a href="mentors.html" class="btn">Découvrir les mentors</a>
-  <a href="microcompetences.html" class="btn">Micro-compétences</a>
-  <a href="projets-collaboratifs.html" class="btn">Projets collaboratifs</a>
-  <a href="profil.html" class="btn secondary">Mon trajet de projet</a>
-</section>
+</main>
 
+<!-- =====================
+     FOOTER
+===================== -->
 <footer>
-  <p>© 2026 MeanSet Academy – Tous droits réservés</p>
-  <p>
-    <a href="mentions-legales.html">Mentions légales</a> |
-    <a href="cgv.html">Conditions générales</a>
-  </p>
+    © 2026 MeanSet Academy – Tous droits réservés<br>
+    <a href="cgv.html">CGV</a> |
+    <a href="mentions.html">Mentions légales</a>
 </footer>
+
+<!-- =====================
+     SCRIPT AVATAR PARLANT
+===================== -->
+<script>
+function parlerAvatar() {
+    speechSynthesis.cancel();
+
+    const texte = `
+    Bienvenue sur MeanSet Academy.
+    Cette plateforme a été créée pour t’aider à lancer ton projet,
+    développer tes compétences et avancer avec des mentors,
+    des outils concrets et une vraie communauté.
+    Ici, tu n’es pas seul. Tu passes à l’action.
+    `;
+
+    const voix = new SpeechSynthesisUtterance(texte);
+    voix.lang = "fr-FR";
+    voix.rate = 0.95;
+    voix.pitch = 1.1;
+    voix.volume = 1;
+
+    speechSynthesis.speak(voix);
+}
+</script>
 
 </body>
 </html>
-
