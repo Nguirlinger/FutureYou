@@ -1,204 +1,138 @@
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MeanSet Academy</title>
-    <style>
-        /* =======================
-           Styles généraux
-        ======================= */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background: #f4f6f8;
-            color: #333;
-            line-height: 1.6;
-        }
-
-        a {
-            text-decoration: none;
-        }
-
-        /* =======================
-           Header
-        ======================= */
-        header {
-            background: linear-gradient(90deg, #1E3A8A, #3B82F6); /* bleu professionnel */
-            color: white;
-            padding: 20px 30px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: relative;
-        }
-
-        header h1 {
-            margin: 0;
-            font-size: 2em;
-        }
-
-        header img.logo {
-            height: 60px;
-        }
-
-        header img.avatar {
-            height: 60px;
-            width: 60px;
-            border-radius: 50%;
-            border: 2px solid white;
-            cursor: pointer;
-        }
-
-        /* =======================
-           Section principale
-        ======================= */
-        main {
-            max-width: 1000px;
-            margin: 30px auto;
-            padding: 20px;
-        }
-
-        .hero {
-            background-color: #1E3A8A;
-            color: white;
-            border-radius: 15px;
-            padding: 30px;
-            position: relative;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        }
-
-        .hero h2 {
-            color: #fff;
-            margin-top: 0;
-        }
-
-        .hero p {
-            font-size: 1.1em;
-        }
-
-        .hero .buttons {
-            margin-top: 20px;
-        }
-
-        .hero .buttons a {
-            display: inline-block;
-            margin-right: 15px;
-            padding: 12px 25px;
-            background-color: #3B82F6;
-            color: white;
-            border-radius: 8px;
-            font-weight: bold;
-            transition: background 0.3s;
-        }
-
-        .hero .buttons a:hover {
-            background-color: #1E40AF;
-        }
-
-        /* =======================
-           Sections d’info
-        ======================= */
-        section {
-            margin-top: 30px;
-            padding: 25px;
-            background-color: #ffffff;
-            border-radius: 15px;
-            box-shadow: 0 3px 8px rgba(0,0,0,0.1);
-        }
-
-        section h3 {
-            color: #1E3A8A;
-        }
-
-        /* =======================
-           Footer
-        ======================= */
-        footer {
-            text-align: center;
-            padding: 20px;
-            background-color: #374151; /* gris foncé */
-            color: white;
-            margin-top: 40px;
-        }
-
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MeanSet Academy</title>
+<style>
+body {
+font-family: Arial, sans-serif;
+margin: 0;
+padding: 0;
+background: url('page/page.png') no-repeat center center fixed;
+background-size: cover;
+color: white;
+}
+/* Header */
+header {
+background: linear-gradient(90deg, #0f4c81, #1E90FF);
+padding: 20px 30px;
+}
+.header-content {
+display: flex;
+align-items: center;
+justify-content: space-between;
+}
+.logo {
+width: 90px;
+background: white;
+padding: 8px;
+border-radius: 12px;
+}
+.profile-pic {
+width: 70px;
+border-radius: 50%;
+border: 2px solid white;
+}
+.title-block {
+text-align: center;
+flex: 1;
+}
+.title-block h1 {
+margin: 0;
+font-size: 2.6em;
+}
+.slogan {
+margin-top: 6px;
+font-size: 1.1em;
+opacity: 0.9;
+}
+/* Sections */
+section {
+max-width: 900px;
+margin: 40px auto;
+padding: 30px;
+background: rgba(0,0,0,0.6);
+border-radius: 15px;
+}
+h2 {
+color: #66b3ff;
+}
+/* Buttons */
+.btn {
+display: inline-block;
+background: #1E90FF;
+color: white;
+padding: 12px 20px;
+border-radius: 8px;
+margin: 10px 10px 0 0;
+text-decoration: none;
+font-weight: bold;
+}
+.btn:hover {
+background: #0f4c81;
+}
+/* Footer */
+footer {
+text-align: center;
+padding: 20px;
+background: rgba(0,0,0,0.7);
+margin-top: 40px;
+}
+</style>
 </head>
 <body>
-
-    <!-- =======================
-         Header avec logo et avatar
-    ======================= -->
-    <header>
-        <img src="logo.png" alt="Logo MeanSet Academy" class="logo">
-        <h1>MeanSet Academy</h1>
-        <img src="avatar.png" alt="Avatar MeanSet Academy" class="avatar" onclick="parlerAvatar()">
-    </header>
-
-    <!-- =======================
-         Section principale
-    ======================= -->
-    <main>
-        <div class="hero">
-            <h2>Bienvenue sur MeanSet Academy</h2>
-            <p>
-                Chez MeanSet Academy, notre mission est simple : aider chacun à se lancer, que ce soit dans les réseaux professionnels ou pour créer son entreprise.
-                Grâce à des mentors expérimentés, des tutoriels guidés et des cartes mentales interactives, vous pouvez structurer vos idées, suivre vos projets et progresser efficacement.
-            </p>
-            <p>
-                Retrouvez vos projets via le bouton “Mon Trajet” pour suivre vos tâches, partager vos documents et collaborer facilement.
-            </p>
-            <div class="buttons">
-                <a href="projets.html">Mes Projets</a>
-                <a href="mentors.html">Nos Mentors</a>
-                <a href="microcompetences.html">Micro-Compétences</a>
-            </div>
-        </div>
-
-        <section>
-            <h3>Pourquoi MeanSet Academy ?</h3>
-            <p>
-                MeanSet Academy est un club d’affaires nouvelle génération. Il fusionne le virtuel ultra-immersif et le réel pour permettre à chacun de développer ses projets grâce à la vidéo, aux simulations, au mentorat flexible, au live et à l’IA à la demande.
-            </p>
-            <p>
-                La plateforme met l’accent sur le collaboratif, les challenges, le partage de micro-compétences et la connexion directe avec des mentors expérimentés.
-            </p>
-            <p>
-                Accessible à tous, MeanSet Academy permet de passer d’une idée à un projet concret, entouré des bonnes personnes, au bon moment. La plateforme évolue selon vos besoins et retours.
-            </p>
-        </section>
-
-        <section>
-            <h3>Notre mission</h3>
-            <p>
-                Nous voulons aider les jeunes qui souhaitent se lancer dans les réseaux ou monter leur entreprise, mais aussi ceux qui veulent aller plus loin dans leurs projets. L’IA et les outils numériques sont au cœur de notre démarche pour rendre l’apprentissage et le mentorat accessibles à tous.
-            </p>
-        </section>
-    </main>
-
-    <!-- =======================
-         Footer
-    ======================= -->
-    <footer>
-        &copy; 2026 MeanSet Academy. Tous droits réservés.  
-        <br>
-        <a href="cgv.html" style="color:white">CGV</a> | 
-        <a href="mentions.html" style="color:white">Mentions légales</a>
-    </footer>
-
-    <!-- =======================
-         Script pour l’avatar qui parle
-    ======================= -->
-    <script>
-        function parlerAvatar() {
-            var msg = new SpeechSynthesisUtterance();
-            msg.text = "Bienvenue sur MeanSet Academy ! Nous aidons chacun à se lancer, à progresser et à structurer ses projets avec des mentors, des tutos et des outils collaboratifs.";
-            msg.lang = "fr-FR";
-            window.speechSynthesis.speak(msg);
-        }
-    </script>
-
+<header>
+<div class="header-content">
+<img src="logo.png" class="logo" alt="MeanSet Academy">
+<div class="title-block">
+<h1>MeanSet Academy</h1>
+<p class="slogan">Club virtuel & réel — Mentors, savoir-faire et savoir-être</p>
+</div>
+<img src="moi.png" class="profile-pic" alt="Fondateur">
+</div>
+</header>
+<section>
+<h2>À propos</h2>
+<p><strong>MeanSet Academy est un club d’affaires nouvelle génération.</strong></p>
+<p>
+Il fusionne le <strong>virtuel ultra-immersif</strong> et le <strong>réel</strong> pour permettre à chacun de développer ses projets grâce à la <strong>vidéo</strong>, aux <strong>simulations</strong>, au <strong>mentorat flexible</strong>, au <strong>live</strong> et à l’<strong>IA à la demande</strong>.
+</p>
+<p>
+La plateforme met l’accent sur le <strong>collaboratif</strong>, les <strong>challenges</strong>, le <strong>partage de micro-compétences</strong> et la connexion directe avec des <strong>mentors expérimentés</strong>.
+</p>
+<p>
+<strong>Accessible à tous</strong>, MeanSet Academy permet de passer d’une idée à un projet concret, entouré des bonnes personnes, au bon moment.
+</p>
+<a href="mentors.html" class="btn">Rencontrer les mentors</a>
+<a href="microcompetences.html" class="btn">Micro-Compétences</a>
+<a href="projets-collaboratifs.html" class="btn">Projets Collaboratifs</a>
+<a href="profil.html" class="btn">Mon Trajet</a>
+</section>
+<section>
+<h2>Fonctionnalités</h2>
+<ul>
+<li>Mentorat humain et IA à la demande</li>
+<li>Apprentissage immersif par vidéo & simulation</li>
+<li>Challenges collaboratifs</li>
+<li>Réseau professionnel virtuel & réel</li>
+<li>Plateforme ouverte à tous les profils</li>
+</ul>
+</section>
+<section>
+<h2>Contact</h2>
+<p>Envie de rejoindre MeanSet Academy ou de devenir mentor ?</p>
+<a href="mailto:contact@meanset.academy" class="btn">Contact</a>
+</section>
+<footer>
+© 2026 MeanSet Academy — Tous droits réservés
+</footer>
+<!-- Firebase SDK -->
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js"></script>
+<!-- Ton fichier d'initialisation Firebase -->
+<script src="firebase-init.js"></script>
 </body>
 </html>
-
