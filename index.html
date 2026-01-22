@@ -292,31 +292,45 @@ Je m'appelle Natacha Guirlinger. Mon expérience professionnelle et personnelle 
 </div>
 
 <script>
+<script>
+let enCours = false;
+
 function ouvrirAvatar() {
+  if (enCours) return; // empêche double lancement
+
   const modal = document.getElementById("avatarModal");
-  const mouth = document.getElementById("mouth");
+  const avatar = document.getElementById("avatarGrand");
 
   modal.style.display = "flex";
-  mouth.classList.add("talking");
 
-  const texte = "Je m'appelle Natacha Guirlinger. Mon expérience professionnelle et personnelle m'ont appris que le monde évolue entre les réseaux et l'IA, et qu'il faut un apprentissage constant. De nature à aider mon prochain, je souhaite transmettre un outil capable d'accompagner les autres dans leurs démarches.";
+  const texte = "Je m'appelle Natacha Guirlinger. Mon expérience professionnelle et personnelle m'ont appris que le monde évolue entre les réseaux et l’intelligence artificielle et qu’il faut un apprentissage constant. De nature à aider mon prochain, je souhaite transmettre un outil capable d'accompagner les autres dans leurs démarches.";
 
-  const speech = new SpeechSynthesisUtterance(texte);
-  speech.lang = "fr-FR";
-  speech.rate = 0.9;
-  speech.pitch = 1;
+  const voix = new SpeechSynthesisUtterance(texte);
+  voix.lang = "fr-FR";
+  voix.rate = 0.95;
+  voix.pitch = 1;
 
-  speech.onend = function() {
-    mouth.classList.remove("talking");
+  speechSynthesis.cancel(); // stop toute ancienne lecture
+  enCours = true;
+
+  avatar.classList.add("talking");
+
+  voix.onend = function() {
+    avatar.classList.remove("talking");
+    enCours = false;
   };
 
-  speechSynthesis.cancel();
-  speechSynthesis.speak(speech);
+  speechSynthesis.speak(voix);
 }
 
 function fermerAvatar() {
   document.getElementById("avatarModal").style.display = "none";
   speechSynthesis.cancel();
+  document.getElementById("avatarGrand").classList.remove("talking");
+  enCours = false;
+}
+</script>
+
 }
 </script>
 <!-- MODAL AVATAR -->
