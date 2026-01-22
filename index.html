@@ -156,7 +156,6 @@ footer {
   font-size: 0.75rem;
 }
 
-/* ===== MODAL AVATAR ===== */
 .modal-avatar {
   display: none;
   position: fixed;
@@ -168,34 +167,52 @@ footer {
 }
 
 .modal-content {
-  background: white;
-  padding: 30px;
-  border-radius: 20px;
-  max-width: 400px;
+  background: #ffffffee;
+  padding: 40px;
+  border-radius: 25px;
+  max-width: 450px;
   text-align: center;
-  animation: fadeIn 0.4s ease;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+  animation: popUp 0.5s ease forwards;
+  transform: scale(0.8);
+  opacity: 0;
 }
 
 .modal-content img {
-  width: 200px;
+  width: 250px;
   border-radius: 20px;
   margin-bottom: 20px;
 }
 
-@keyframes fadeIn {
-  from {opacity: 0; transform: scale(0.8);}
-  to {opacity: 1; transform: scale(1);}
-}
-
 .close-btn {
-  margin-top: 15px;
-  padding: 8px 16px;
+  margin-top: 20px;
+  padding: 8px 20px;
   border: none;
   background-color: var(--blue-main);
   color: white;
-  border-radius: 20px;
+  border-radius: 25px;
   cursor: pointer;
 }
+
+@keyframes popUp {
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* Bouche animée */
+.talking {
+  animation: talk 0.3s infinite alternate, zoomTalk 0.6s infinite alternate;
+}
+
+@keyframes talk {
+  0% { transform: scaleY(1); }
+  100% { transform: scaleY(1.05); }
+}
+
+@keyframes zoomTalk {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.03); }
+}
+
 
 }
 </style>
@@ -218,9 +235,10 @@ footer {
     </div>
   </div>
 
- <div class="avatar-container">
-  <img src="avatar.png" alt="Avatar Natacha" class="avatar" onclick="ouvrirAvatar()">
+<div class="hero-avatar">
+  <img src="avatar.png" alt="Avatar Natacha" class="avatar-main">
   <button class="avatar-btn" onclick="ouvrirAvatar()">CLIC</button>
+
 </div>
 
 </div>
@@ -296,43 +314,48 @@ Je m'appelle Natacha Guirlinger. Mon expérience professionnelle et personnelle 
 let enCours = false;
 
 function ouvrirAvatar() {
-  if (enCours) return; // empêche double lancement
+  if (enCours) return; // empêche répétition
 
   const modal = document.getElementById("avatarModal");
   const avatar = document.getElementById("avatarGrand");
+  const texte = document.getElementById("texteAvatar").innerText;
 
+  // Affiche le modal
   modal.style.display = "flex";
 
-  const texte = "Je m'appelle Natacha Guirlinger. Mon expérience professionnelle et personnelle m'ont appris que le monde évolue entre les réseaux et l’intelligence artificielle et qu’il faut un apprentissage constant. De nature à aider mon prochain, je souhaite transmettre un outil capable d'accompagner les autres dans leurs démarches.";
+  // Animation bouche
+  avatar.classList.add("talking");
+
+  // Empêche que la voix soit lancée plusieurs fois
+  enCours = true;
 
   const voix = new SpeechSynthesisUtterance(texte);
   voix.lang = "fr-FR";
   voix.rate = 0.95;
   voix.pitch = 1;
 
-  speechSynthesis.cancel(); // stop toute ancienne lecture
-  enCours = true;
-
-  avatar.classList.add("talking");
-
   voix.onend = function() {
     avatar.classList.remove("talking");
     enCours = false;
   };
 
+  // Stop toute lecture précédente
+  speechSynthesis.cancel();
   speechSynthesis.speak(voix);
 }
 
 function fermerAvatar() {
-  document.getElementById("avatarModal").style.display = "none";
+  const modal = document.getElementById("avatarModal");
+  const avatar = document.getElementById("avatarGrand");
+  modal.style.display = "none";
+
+  // Stoppe la voix et animation
   speechSynthesis.cancel();
-  document.getElementById("avatarGrand").classList.remove("talking");
+  avatar.classList.remove("talking");
   enCours = false;
 }
 </script>
 
-}
-</script>
 <!-- MODAL AVATAR -->
 <div class="modal-avatar" id="avatarModal">
   <div class="modal-content">
@@ -363,6 +386,16 @@ function fermerAvatar() {
   speechSynthesis.cancel();
 }
 </script>
+
+  <div class="modal-avatar" id="avatarModal">
+  <div class="modal-content">
+    <img src="avatar.png" alt="Avatar Natacha" id="avatarGrand">
+    <p id="texteAvatar">
+      Je m'appelle Natacha Guirlinger. Mon expérience professionnelle et personnelle m'ont appris que le monde évolue entre les réseaux et l’IA, et qu’il faut un apprentissage constant. De nature à aider mon prochain, je souhaite transmettre un outil capable d'accompagner les autres dans leurs démarches.
+    </p>
+    <button class="close-btn" onclick="fermerAvatar()">Fermer</button>
+  </div>
+</div>
 
 </body>
 </html>
