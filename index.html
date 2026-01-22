@@ -125,56 +125,78 @@ footer {
   text-align: center;
   padding: 25px;
 }
+/* ===== AVATAR ===== */
+.avatar-container {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  text-align: center;
+}
 
-/* MODAL AVATAR */
-.avatar-modal {
+.avatar {
+  width: 90px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.avatar:hover {
+  transform: scale(1.1);
+}
+
+.avatar-btn {
+  margin-top: 6px;
+  padding: 5px 12px;
+  border: none;
+  background-color: white;
+  color: var(--blue-main);
+  font-weight: bold;
+  border-radius: 15px;
+  cursor: pointer;
+  font-size: 0.75rem;
+}
+
+/* ===== MODAL AVATAR ===== */
+.modal-avatar {
   display: none;
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.85);
+  background: rgba(0,0,0,0.7);
   justify-content: center;
   align-items: center;
   z-index: 999;
 }
 
-.avatar-content {
+.modal-content {
   background: white;
-  padding: 40px;
-  border-radius: 25px;
-  max-width: 500px;
+  padding: 30px;
+  border-radius: 20px;
+  max-width: 400px;
   text-align: center;
-  position: relative;
+  animation: fadeIn 0.4s ease;
 }
 
-.avatar-full {
-  width: 280px;
+.modal-content img {
+  width: 200px;
+  border-radius: 20px;
   margin-bottom: 20px;
 }
 
-/* animation bouche */
-.mouth {
-  width: 40px;
-  height: 10px;
-  background: black;
-  margin: 10px auto;
-  border-radius: 20px;
-}
-
-.talking {
-  animation: talk 0.3s infinite alternate;
-}
-
-@keyframes talk {
-  from { height: 8px; }
-  to { height: 18px; }
+@keyframes fadeIn {
+  from {opacity: 0; transform: scale(0.8);}
+  to {opacity: 1; transform: scale(1);}
 }
 
 .close-btn {
-  position: absolute;
-  right: 20px;
-  top: 15px;
+  margin-top: 15px;
+  padding: 8px 16px;
+  border: none;
+  background-color: var(--blue-main);
+  color: white;
+  border-radius: 20px;
   cursor: pointer;
-  font-size: 24px;
+}
+
 }
 </style>
 </head>
@@ -196,7 +218,11 @@ footer {
     </div>
   </div>
 
-  <img src="avatar.png" class="avatar" onclick="ouvrirAvatar()">
+ <div class="avatar-container">
+  <img src="avatar.png" alt="Avatar Natacha" class="avatar" onclick="ouvrirAvatar()">
+  <button class="avatar-btn" onclick="ouvrirAvatar()">CLIC</button>
+</div>
+
 </div>
 
 <!-- POURQUOI -->
@@ -286,6 +312,36 @@ function ouvrirAvatar() {
 
   speechSynthesis.cancel();
   speechSynthesis.speak(speech);
+}
+
+function fermerAvatar() {
+  document.getElementById("avatarModal").style.display = "none";
+  speechSynthesis.cancel();
+}
+</script>
+<!-- MODAL AVATAR -->
+<div class="modal-avatar" id="avatarModal">
+  <div class="modal-content">
+    <img src="avatar.png" alt="Avatar Natacha">
+    <p>
+      Je m'appelle Natacha Guirlinger.  
+      Mon expérience professionnelle et personnelle m'ont appris que le monde évolue entre les réseaux et l’IA, et qu’il faut un apprentissage constant.  
+      De nature à aider mon prochain, je souhaite transmettre un outil capable d'accompagner les autres dans leurs démarches.
+    </p>
+    <button class="close-btn" onclick="fermerAvatar()">Fermer</button>
+  </div>
+</div>
+
+<script>
+function ouvrirAvatar() {
+  document.getElementById("avatarModal").style.display = "flex";
+
+  const texte = "Je m'appelle Natacha Guirlinger. Mon expérience professionnelle et personnelle m'ont appris que le monde évolue entre les réseaux et l’intelligence artificielle, et qu’il faut un apprentissage constant. De nature à aider mon prochain, je souhaite transmettre un outil capable d'accompagner les autres dans leurs démarches.";
+
+  const voix = new SpeechSynthesisUtterance(texte);
+  voix.lang = "fr-FR";
+  voix.rate = 1;
+  speechSynthesis.speak(voix);
 }
 
 function fermerAvatar() {
