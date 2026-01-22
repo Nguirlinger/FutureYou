@@ -183,7 +183,27 @@ section h2 {
   font-size: 26px;
   cursor: pointer;
 }
+    /* ===== CONCEPT CARDS ===== */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-top: 40px;
+    }
 
+    .card {
+      background-color: white;
+      border-radius: 16px;
+      padding: 30px;
+      text-align: center;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.07);
+    }
+
+    .card h3 {
+      color: var(--blue-main);
+      margin-bottom: 10px;
+    }
+  
 /* FOOTER */
 footer {
   background: var(--blue-dark);
