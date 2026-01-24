@@ -286,6 +286,7 @@ footer {
 </footer>
 
 <script>
+
 function ouvrirPresentation() {
 
   const overlay = document.createElement("div");
@@ -304,7 +305,6 @@ function ouvrirPresentation() {
     const synth = window.speechSynthesis;
     const utterance = new SpeechSynthesisUtterance(texte);
 
-    // 🔥 Sélection d'une voix française
     const voices = synth.getVoices();
     const voixFR = voices.find(voice => voice.lang.includes("fr"));
 
@@ -319,7 +319,6 @@ function ouvrirPresentation() {
     synth.speak(utterance);
   }
 
-  // Certains navigateurs chargent les voix après coup
   if (speechSynthesis.getVoices().length === 0) {
     speechSynthesis.onvoiceschanged = parler;
   } else {
@@ -331,7 +330,10 @@ function ouvrirPresentation() {
     overlay.remove();
   }
 
+}  
+
 </script>
+
 
 </body>
 </html>
