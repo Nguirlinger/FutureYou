@@ -286,30 +286,53 @@ footer {
 </footer>
 
 <script>
+<script>
 function ouvrirPresentation() {
 
-const overlay = document.createElement("div");
-overlay.className = "overlay";
+  const overlay = document.createElement("div");
+  overlay.className = "overlay";
 
-const img = document.createElement("img");
-img.src = "avatar-full.png";
-img.className = "avatar-full";
+  const img = document.createElement("img");
+  img.src = "avatar-full.png";
+  img.className = "avatar-full";
 
-overlay.appendChild(img);
-document.body.appendChild(overlay);
+  overlay.appendChild(img);
+  document.body.appendChild(overlay);
 
-const texte = "Je m'appelle Natacha Guirlinger. Mon expérience professionnelle et personnelle m'ont appris que le monde évolue entre les réseaux et l’intelligence artificielle et qu’il faut apprendre en permanence. De nature à aider mon prochain, je souhaite transmettre un outil capable d’accompagner chacun dans ses démarches.";
+  const texte = "Je m'appelle Natacha Guirlinger. Mon expérience professionnelle et personnelle m'ont appris que le monde évolue entre les réseaux et l’intelligence artificielle et qu’il faut apprendre en permanence. De nature à aider mon prochain, je souhaite transmettre un outil capable d’accompagner chacun dans ses démarches.";
 
-const voix = new SpeechSynthesisUtterance(texte);
-voix.rate = 1;
-voix.pitch = 1;
-speechSynthesis.cancel();
-speechSynthesis.speak(voix);
+  function parler() {
+    const synth = window.speechSynthesis;
+    const utterance = new SpeechSynthesisUtterance(texte);
 
-overlay.onclick = function() {
-speechSynthesis.cancel();
-overlay.remove();
+    // 🔥 Sélection d'une voix française
+    const voices = synth.getVoices();
+    const voixFR = voices.find(voice => voice.lang.includes("fr"));
+
+    if (voixFR) {
+      utterance.voice = voixFR;
+    }
+
+    utterance.rate = 1;
+    utterance.pitch = 1;
+
+    synth.cancel();
+    synth.speak(utterance);
+  }
+
+  // Certains navigateurs chargent les voix après coup
+  if (speechSynthesis.getVoices().length === 0) {
+    speechSynthesis.onvoiceschanged = parler;
+  } else {
+    parler();
+  }
+
+  overlay.onclick = function() {
+    speechSynthesis.cancel();
+    overlay.remove();
+  }
 }
+</script>
 
 }
 </script>
