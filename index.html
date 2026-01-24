@@ -23,11 +23,11 @@
 
     /* ===== HEADER ===== */
     .header-bar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 10px 20px;
-      background-color: var(--blue-dark);
+  background: transparent;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
     }
 
     .header-bar .logo {
@@ -70,6 +70,10 @@
       padding: 20px;
       background: linear-gradient(135deg, var(--blue-main), var(--blue-dark));
       color: white;
+      .header-text {
+  padding-top: 120px; /* laisse la place au logo + avatar */
+}
+
     }
 
     .header-text h1 {
