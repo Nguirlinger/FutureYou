@@ -301,38 +301,21 @@ function ouvrirPresentation() {
   overlay.appendChild(img);
   document.body.appendChild(overlay);
 
-  const texte = "Je m'appelle Natacha Guirlinger. Mon expérience professionnelle et personnelle m'ont appris que le monde évolue entre les réseaux et l’intelligence artificielle et qu’il faut apprendre en permanence. De nature à aider mon prochain, je souhaite transmettre un outil capable d’accompagner chacun dans ses démarches.";
-
-  function parler() {
-    const synth = window.speechSynthesis;
-    const utterance = new SpeechSynthesisUtterance(texte);
-
-    const voices = synth.getVoices();
-    const voixFR = voices.find(voice => voice.lang.includes("fr"));
-
-    if (voixFR) {
-      utterance.voice = voixFR;
-    }
-
-    utterance.rate = 1;
-    utterance.pitch = 1;
-
-    synth.cancel();
-    synth.speak(utterance);
-  }
-
-  if (speechSynthesis.getVoices().length === 0) {
-    speechSynthesis.onvoiceschanged = parler;
-  } else {
-    parler();
-  }
+  // 🔊 Lecture automatique de ta vraie voix
+  const audio = new Audio("natacha-voice.mp3");
+  audio.play().catch(() => {
+    console.log("Lecture bloquée par le navigateur");
+  });
 
   overlay.onclick = function() {
-    speechSynthesis.cancel();
+    audio.pause();
+    audio.currentTime = 0;
     overlay.remove();
   }
 
-}  
+}
+</script>
+
 
 </script>
 
